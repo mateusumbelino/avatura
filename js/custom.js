@@ -2,17 +2,17 @@ var qntLegs;
 
 function changeBody(newBody) {
     switch(newBody) {
-        case 'bipede':
+        case 'Um tronco de carvalho com dois galhos paralelos.':
             bodyImg = 'data/body/biped.png';
             headLeftOffset = 286;
             qntLegs = 2;
             break;
-        case 'quadrupede':
+        case 'Uma rocha, que será suportada por quatro pilares.':
             bodyImg = 'data/body/quadruped.png';        
             headLeftOffset = 483;
             qntLegs = 4;
             break;
-        case 'aracnideokkk':
+        case 'Uma montanha, com seis estados abaixo de si.':
             bodyImg = 'data/body/arachnid.png';
             headLeftOffset = 558;
             qntLegs = 6;
@@ -26,13 +26,13 @@ function changeBody(newBody) {
 
 function changeHead(newHead) {
     switch(newHead) {
-        case 'opcao a':
+        case 'Existem muitos cheiros no ar, preciso encontrar todos eles.':
             headImg = 'data/head/head1.png';
             break;
-        case 'opcao b':
+        case 'Meu pescoço deve ir das núvens até a grama.':
             headImg = 'data/head/head2.png';
             break;
-        case 'opcao c':
+        case 'Sei lá vei eu gosto de gato.':
             headImg = 'data/head/head3.png';
             break;
       }
@@ -59,7 +59,7 @@ function addLegs(newBody, qnt) {
 function getLegSpacing(bodyType, leg) {
     var pos = new Array();
     switch(bodyType) {
-        case 'bipede':
+        case 'Um tronco de carvalho com dois galhos paralelos.':
             pos['top'] = 420;    
             pos['index'] = 1;
             if(leg == 1) {
@@ -69,7 +69,7 @@ function getLegSpacing(bodyType, leg) {
             }
             return pos;
             break;
-        case 'quadrupede':
+        case 'Uma rocha, que será suportada por quatro pilares.':
             if(leg == 1) {
                 pos['left'] = 1038;
                 pos['top'] = 375;
@@ -89,7 +89,7 @@ function getLegSpacing(bodyType, leg) {
             }
             return pos;
             break;
-            case 'aracnideokkk':
+            case 'Uma montanha, com seis estados abaixo de si.':
                 if(leg == 1) {
                     pos['left'] = 1075;
                     pos['top'] = 422;
@@ -123,13 +123,13 @@ function getLegSpacing(bodyType, leg) {
 
 function changeLegs(newLegs) {
     switch(newLegs) {
-        case 'opcao a':
+        case 'Seja gentil com a terra.':
             LegImg = 'data/leg/leg1.png';
             break;
-        case 'opcao b':
+        case 'Finque a terra, deixando minha marca.':
             LegImg = 'data/leg/leg2.png';
             break;
-        case 'opcao c':
+        case 'Uma espiral, molenga. Não sei se vai suportar por muito tempo.':
             LegImg = 'data/leg/leg3.png';
             break;
       }
