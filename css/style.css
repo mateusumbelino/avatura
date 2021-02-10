@@ -10,7 +10,7 @@
 
 #result-body {
     background-size: contain;
-    width: 80%;
+    width: 800px;
     height: 800px;
 }
 
@@ -25,7 +25,7 @@
 .result-arm {
     width: 350px;
     height: 400px;
-    position: absolute;
+    position: relative;
     /*border: 1px solid black;*/
 }
 
@@ -39,6 +39,6 @@
 .result-leg {
     width: 375px;
     height: 375px;
-    position: absolute;
+    position: relative;
     /*border: 1px solid black;*/
 }

@@ -2,6 +2,9 @@ var qntLegs;
 var qntArms;
 var ArmType;
 
+var ArmHeight = 400;
+var LegHeight = 375;
+
 /* ---------- Funções de Mudança de Membros ----------*/
 /* ---------------------------------------------------*/
 
@@ -177,23 +180,23 @@ function getHeadSpacing(bodyType) {
     var pos = new Array();
     switch(bodyType) {
         case 'Unipede.':
-            pos['top'] = -27;   
-            pos['left'] = 211; 
+            pos['top'] = -12;   
+            pos['left'] = 250; 
             return pos;
             break;
         case 'Bipede.':
-            pos['top'] = -31;   
-            pos['left'] = 208; 
+            pos['top'] = -13;   
+            pos['left'] = 248; 
             return pos;
             break;
         case 'Caramujo.':
-            pos['top'] = -36;   
-            pos['left'] = 368; 
+            pos['top'] = -19;   
+            pos['left'] = 425; 
             return pos;
             break;
         case 'Sextuple.':
-            pos['top'] = -24;   
-            pos['left'] = 210; 
+            pos['top'] = -2;   
+            pos['left'] = 245; 
             return pos;
             break;
     }
@@ -203,40 +206,41 @@ function getLegSpacing(bodyType, leg) {
     var pos = new Array();
     switch(bodyType) {
         case 'Unipede.':
-            pos['top'] = 490;    
-            pos['index'] = 1;
-            pos['left'] = 827;
+            pos['index'] = 1;    
+            pos['top'] = -564;                
+            pos['left'] = 275;
             return pos;
             break;
-        case 'Bipede.':
-                pos['top'] = 475;    
+        case 'Bipede.':   
                 pos['index'] = 1;
                 if(leg == 1) {
-                    pos['left'] = 885;    
+                    pos['top'] = -600; 
+                    pos['left'] = 170;    
                 } else if (leg == 2) {
-                    pos['left'] = 775;
+                    pos['top'] = -973; 
+                    pos['left'] = 320;
                 }
                 return pos;
                 break;
         case 'Caramujo.':
-            pos['top'] = 460;    
-            if(leg == 1) {
-                pos['left'] = 980;    
+            pos['top'] = -595-((leg-1)*LegHeight);  
+            if(leg == 1) {  
+                pos['left'] = 400;    
                 pos['index'] = -1;
             } else if (leg == 2) {
-                pos['left'] = 880;
+                pos['left'] = 310;
                 pos['index'] = 1;
             } else if (leg == 3) {
-                pos['left'] = 730;
+                pos['left'] = 180;
                 pos['index'] = -1;
             } else if (leg == 4) {
-                pos['left'] = 655;
+                pos['left'] = 90;
                 pos['index'] = 1;
             }
             return pos;
             break;
             case 'Sextuple.':
-                pos['top'] = 510;
+                pos['top'] = -1360-((leg-1)*LegHeight);    
                 if(leg == 1) {
                     pos['left'] = 985;
                     pos['index'] = -1;
@@ -266,57 +270,58 @@ function getArmSpacing(bodyType, arm) {
     var pos = new Array();
     switch(bodyType) {
         case 'Unipede.':
-            pos['top'] = 190;    
             if(arm == 1) {
+                pos['top'] = -110; 
+                pos['left'] = 280;    
                 pos['index'] = 2;
-                pos['left'] = 860;    
             } else if (arm == 2) {
+                pos['top'] = -522; 
+                pos['left'] = 450;
                 pos['index'] = 1;
-                pos['left'] = 1030;
             }
             return pos;
             break;
         case 'Bipede.':
                 if(arm == 1) {
                     pos['index'] = 2;
-                    pos['top'] = 190;
-                    pos['left'] = 855; 
+                    pos['top'] = -110;
+                    pos['left'] = 260; 
                 } else if (arm == 2) {
                     pos['index'] = 1;
-                    pos['top'] = 168;
-                    pos['left'] = 1025;
+                    pos['top'] = -543;
+                    pos['left'] = 450;
                 }
                 return pos;
                 break;
         case 'Caramujo.':
             if(arm == 1) {
-                pos['top'] = 210;    
-                pos['left'] = 1035;    
+                pos['top'] = -130;    
+                pos['left'] = 465;    
                 pos['index'] = 1;
             } else if (arm == 2) {
-                pos['top'] = 185;    
-                pos['left'] = 1145;
+                pos['top'] = -530;    
+                pos['left'] = 595;
                 pos['index'] = 0;
             }
             return pos;
             break;
             case 'Sextuple.':
                 if(arm == 1) {
-                    pos['top'] = 300;
-                    pos['left'] = 1035;
+                    pos['top'] = -143;
+                    pos['left'] = 457;
                     pos['index'] = 4;
                 } else if (arm == 2) {
-                    pos['top'] = 300;
-                    pos['left'] = 590;
+                    pos['top'] = -530;
+                    pos['left'] = -15;
                     pos['index'] = 4;
                     pos['flip'] = true;
                 } else if (arm == 3) {
-                    pos['top'] = 166;
-                    pos['left'] = 1026;
+                    pos['top'] = -775;
+                    pos['left'] = 480;
                     pos['index'] = 3;
                 } else if (arm == 4) {
-                    pos['top'] = 169;
-                    pos['left'] = 580;
+                    pos['top'] = -1180;
+                    pos['left'] = 5;
                     pos['index'] = 3;
                     pos['flip'] = true;
                 }
@@ -331,18 +336,18 @@ function getHandSpacing(ArmType, hand) {
     pos['index'] = 5;
     switch(ArmType) {
         case 'Forte.':
-            pos['top'] = -3; 
-            pos['left'] = 205;    
+            pos['top'] = -11; 
+            pos['left'] = 240;    
             return pos;
             break;
         case 'Macarrão.':
-            pos['top'] = -15; 
-            pos['left'] = 115;    
+            pos['top'] = -10; 
+            pos['left'] = 143;    
             return pos;
             break;
         case 'Palito.':
-            pos['top'] = -23; 
-            pos['left'] = 202;    
+            pos['top'] = 0; 
+            pos['left'] = 222;    
             return pos;
             break;
       }
