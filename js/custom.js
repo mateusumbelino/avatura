@@ -1,6 +1,11 @@
+var HeadType;
+var ArmType;
+var LegType;
+
+var qntEyes;
+var qntEars;
 var qntLegs;
 var qntArms;
-var ArmType;
 
 var ArmHeight = 400;
 var LegHeight = 375;
@@ -45,16 +50,79 @@ function changeHead(newHead) {
     switch(newHead) {
         case 'Oval.':
             headImg = 'data/head/Oval.png';
+            qntEyes = 1;
+            qntEars = 2;
             break;
         case 'Quadrado.':
             headImg = 'data/head/Square.png';
+            qntEyes = 1;
+            qntEars = 2;
             break;
         case 'Triângulo.':
             headImg = 'data/head/Triangle.png';
+            qntEyes = 1;
+            qntEars = 2;
             break;
       }
     
     $('#result-head').css("background-image", "url("+headImg+")");  
+
+    $('#result-head').html("");   
+    for(i = 1; i<=qntEyes; i++) {
+        $('#result-head').append(
+            "<div class='result-eye eye-n" + i + "'>" +
+
+            "</div>"
+        );
+    }
+
+    for(i = 1; i<=qntEars; i++) {
+        $('#result-head').append(
+            "<div class='result-ear ear-n" + i + "'>" +
+
+            "</div>"
+        );
+    }
+    
+    HeadType = newHead;
+    addEyes(HeadType, qntEyes);
+    addEars(HeadType, qntEars);
+}
+
+function changeEyes(newEyes) {
+    if(newEyes) {
+        switch(newEyes) {
+            case 'Normal.':
+                EyeImg = 'data/eye/Normal.png';
+                break;
+            case 'Zoiao.':
+                EyeImg = 'data/eye/Triangle.png';
+                break;
+            case 'Alien.':
+                EyeImg = 'data/eye/Alien.png';
+                break;
+        }
+        
+        $('.result-eye').css("background-image", "url("+EyeImg+")");  
+    }
+}
+
+function changeEars(newEars) {
+    if(newEars) {
+        switch(newEars) {
+            case 'Pontudas.':
+                EarImg = 'data/ear/PointyEar.png';
+                break;
+            case 'Chifrinho.':
+                EarImg = 'data/ear/Horn.png';
+                break;
+            case 'Tufo.':
+                EarImg = 'data/ear/HairTuf.png';
+                break;
+        }
+        
+        $('.result-ear').css("background-image", "url("+EarImg+")");  
+    }
 }
 
 function changeLegs(newLegs) {
@@ -71,7 +139,28 @@ function changeLegs(newLegs) {
                 break;
         }
         
+        LegType = newLegs;
+
         $('.result-leg').css("background-image", "url("+LegImg+")");  
+        addFeet(LegType, qntLegs);
+    }
+}
+
+function changeFeet(newFeet) {
+    if(newFeet) {
+        switch(newFeet) {
+            case 'Cuei.':
+                FeetImg = 'data/foot/Rabbit.png';
+                break;
+            case 'Cobra.':
+                FeetImg = 'data/foot/Snake.png';
+                break;
+            case 'Dedo.':
+                FeetImg = 'data/foot/Toe.png';
+                break;
+        }
+        
+        $('.result-foot').css("background-image", "url("+FeetImg+")");  
     }
 }
 
@@ -117,10 +206,42 @@ function changeHands(newHands) {
 /* ---------- Funções de Adição de Novos Membros ----------*/
 /* --------------------------------------------------------*/
 
+function addEyes(HeadType, qnt) {
+
+    for(i = 1; i<=qnt; i++) {
+        pos = getHandSpacing(HeadType, i); //CHANGE THIS
+        $('.result-eye.eye-n'+i).css("left", 0);
+        $('.result-eye.eye-n'+i).css("top", 0);
+        $('.result-eye.eye-n'+i).css("z-index", 5);
+    }
+
+    changeEyes($( "#select-eye" ).val())
+}
+
+function addEars(HeadType, qnt) {
+
+    for(i = 1; i<=qnt; i++) {
+        pos = getEarSpacing(HeadType, i);
+        $('.result-ear.ear-n'+i).css("left", pos['left']);
+        $('.result-ear.ear-n'+i).css("top", pos['top']);
+        $('.result-ear.ear-n'+i).css("z-index", pos['index']);
+        if(pos['flip']) $('.result-ear.ear-n'+i).css("transform", 'scaleX(-1)');
+    }
+
+    changeEars($( "#select-ear" ).val())
+}
+
 function addLegs(newBody, qnt) {
     $('#result-legs').html("");
+    $('.result-foot').html("");
     for(i = 1; i<=qnt; i++) {
-        $('#result-legs').append("<div class='result-leg leg-n" + i + "'></div>");
+        $('#result-legs').append(
+            "<div class='result-leg leg-n" + i + "'>" +
+                "<div class='result-foot foot-n" + i + "'>" +
+
+                "</div>" +
+            "</div>"
+        );
     }
 
     for(i = 1; i<=qnt; i++) {
@@ -131,6 +252,19 @@ function addLegs(newBody, qnt) {
     }
 
     changeLegs($( "#select-legs" ).val())
+}
+
+function addFeet(LegType, qnt) {
+    $('.result-foot').html("");
+
+    for(i = 1; i<=qnt; i++) {
+        pos = getFootSpacing(LegType, i);
+        $('.result-foot.foot-n'+i).css("left", pos['left']);
+        $('.result-foot.foot-n'+i).css("top", pos['top']);
+        $('.result-foot.foot-n'+i).css("z-index", pos['index']);
+    }
+
+    changeFeet($( "#select-feet" ).val())
 }
 
 function addArms(newBody, qnt) {
@@ -202,6 +336,45 @@ function getHeadSpacing(bodyType) {
     }
 }
 
+function getEarSpacing(headType, ear) {
+    var pos = new Array();
+    
+    pos['index'] = 6;
+    switch(headType) {
+        case 'Oval.':
+            pos['top'] = -200 - ((ear-1)*200);             
+            if(ear == 1)  pos['left'] = -90;    
+            else {
+                pos['index'] = -1;
+                pos['left'] = 105;    
+                pos['flip'] = true;
+            }
+            return pos;
+            break;
+        case 'Quadrado.':
+            pos['top'] = -180 - ((ear-1)*200); 
+            if(ear == 1)  pos['left'] = -100;    
+            else {
+                pos['index'] = -1;
+                pos['left'] = 150;    
+                pos['flip'] = true;
+            }
+            return pos;
+            break;
+        case 'Triângulo.':
+            pos['top'] = -175 - ((ear-1)*200); 
+            if(ear == 1)  pos['left'] = -80;    
+            else {
+                pos['index'] = -1;
+                pos['left'] = 130;    
+                pos['flip'] = true;
+            }
+            return pos;
+            break;
+      }
+      
+}
+
 function getLegSpacing(bodyType, leg) {
     var pos = new Array();
     switch(bodyType) {
@@ -217,6 +390,7 @@ function getLegSpacing(bodyType, leg) {
                     pos['top'] = -600; 
                     pos['left'] = 170;    
                 } else if (leg == 2) {
+                    pos['index'] = 0;
                     pos['top'] = -973; 
                     pos['left'] = 320;
                 }
@@ -242,25 +416,48 @@ function getLegSpacing(bodyType, leg) {
             case 'Sextuple.':
                 pos['top'] = -1360-((leg-1)*LegHeight);    
                 if(leg == 1) {
-                    pos['left'] = 985;
+                    pos['left'] = 435;
                     pos['index'] = -1;
                 } else if (leg == 2) {
-                    pos['left'] = 945;
+                    pos['left'] = 380;
                     pos['index'] = 1;
                 } else if (leg == 3) {
-                    pos['left'] = 875;
+                    pos['left'] = 275;
                     pos['index'] = -1;
                 } else if (leg == 4) {
-                    pos['left'] = 810;
+                    pos['left'] = 190;
                     pos['index'] = 1;
                 }  else if (leg == 5) {
-                    pos['left'] = 725;
+                    pos['left'] = 95;
                     pos['index'] = -1;
                 }  else if (leg == 6) {
-                    pos['left'] = 640;
+                    pos['left'] = 40;
                     pos['index'] = 1;
                 }
                 return pos;
+            break;
+      }
+      
+}
+
+function getFootSpacing(LegType, foot) {
+    var pos = new Array();
+    pos['index'] = 5;
+    switch(LegType) {
+        case 'Curvado Esquerda.':
+            pos['top'] = 198; 
+            pos['left'] = 75;    
+            return pos;
+            break;
+        case 'Reto.':
+            pos['top'] = 192; 
+            pos['left'] = 143;    
+            return pos;
+            break;
+        case 'Curvado Direita.':
+            pos['top'] = 190; 
+            pos['left'] = 80;    
+            return pos;
             break;
       }
       
@@ -366,6 +563,14 @@ $( document ).ready(function() {
         changeHead($(this).val());
     });
 
+    $( "#select-eye" ).change(function() {
+        changeEyes($(this).val());
+    });
+
+    $( "#select-ear" ).change(function() {
+        changeEars($(this).val());
+    });
+
     $( "#select-arms" ).change(function() {
         changeArms($(this).val());
     });
@@ -376,5 +581,9 @@ $( document ).ready(function() {
 
     $( "#select-legs" ).change(function() {
         changeLegs($(this).val());
+    });
+
+    $( "#select-feet" ).change(function() {
+        changeFeet($(this).val());
     });
 });
