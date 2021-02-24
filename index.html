@@ -3,8 +3,16 @@
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
     <!-- Latest compiled and minified JavaScript -->
     <script src="js/bootstrap/bootstrap.min.js"></script>
-    <script src="js/jquery.min.js"></script>
-
+    <!-- Body changing scripts -->
+    <script src="js/model/shape.js"></script>
+    <script src="js/model/arms.js"></script>
+    <script src="js/model/body.js"></script>
+    <script src="js/model/ears.js"></script>
+    <script src="js/model/eyes.js"></script>
+    <script src="js/model/foot.js"></script>
+    <script src="js/model/hands.js"></script>
+    <script src="js/model/head.js"></script>
+    <script src="js/model/legs.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/custom.js"></script>
 </head>
@@ -18,82 +26,82 @@
             <form>
                 <div class="form-group">
                   <label for="select-body">A base</label>
-                  <select class="form-control" id="select-body">
-                    <option></option>
-                    <option>Unipede.</option>
-                    <option>Bipede.</option>
-                    <option>Caramujo.</option>
-                    <option>Sextuple.</option>
+                  <select class="form-control" id="select-body" onchange='changeBody(this.value);'>
+                    <option value=0></option>
+                    <option value=1>Unipede.</option>
+                    <option value=2>Bipede.</option>
+                    <option value=3>Caramujo.</option>
+                    <option value=4>Sextuple.</option>
                   </select>
 
                   <br>
 
                   <label for="select-head">a gabessa</label>
-                  <select class="form-control" id="select-head">
-                    <option></option>
-                    <option>Oval.</option>
-                    <option>Quadrado.</option>
-                    <option>Triângulo.</option>
+                  <select class="form-control" id="select-head" onchange='changeHead(this.value);'>
+                    <option value=0></option>
+                    <option value=1>Oval.</option>
+                    <option value=2>Quadrado.</option>
+                    <option value=3>Triângulo.</option>
                   </select>
 
                   <br>
 
                   <label for="select-ear">a zoreia</label>
-                  <select class="form-control" id="select-ear">
-                    <option></option>
-                    <option>Pontudas.</option>
-                    <option>Chifrinho.</option>
-                    <option>Tufo.</option>
+                  <select class="form-control" id="select-ear" onchange='changeEars(this.value);'>
+                    <option value=0></option>
+                    <option value=1>Pontudas.</option>
+                    <option value=2>Chifrinho.</option>
+                    <option value=3>Tufo.</option>
                   </select>
 
                   <br>
 
                   <label for="select-eye">ozoi</label>
-                  <select class="form-control" id="select-eye">
-                    <option></option>
-                    <option>Normal.</option>
-                    <option>Zoiao.</option>
-                    <option>Alien.</option>
+                  <select class="form-control" id="select-eye" onchange='changeEyes(this.value);'>
+                    <option value=0></option>
+                    <option value=1>Normal.</option>
+                    <option value=2>Zoiao.</option>
+                    <option value=3>Alien.</option>
                   </select>
 
                   <br>
 
                   <label for="select-arms">os bração</label>
-                  <select class="form-control" id="select-arms">
-                    <option></option>
-                    <option>Forte.</option>
-                    <option>Macarrão.</option>
-                    <option>Palito.</option>
+                  <select class="form-control" id="select-arms" onchange='changeArms(this.value);'>
+                    <option value=0></option>
+                    <option value=1>Forte.</option>
+                    <option value=2>Macarrão.</option>
+                    <option value=3>Palito.</option>
                   </select>
 
                   <br>
 
                   <label for="select-hands">as mãozinha</label>
-                  <select class="form-control" id="select-hands">
-                    <option></option>
-                    <option>Garra.</option>
-                    <option>Mole.</option>
-                    <option>Joia.</option>
+                  <select class="form-control" id="select-hands" onchange='changeHands(this.value);'>
+                    <option value=0></option>
+                    <option value=1>Garra.</option>
+                    <option value=2>Mole.</option>
+                    <option value=3>Joia.</option>
                   </select>
 
                   <br>
 
                   <label for="select-legs">as pernoca</label>
-                  <select class="form-control" id="select-legs">
-                    <option></option>
-                    <option>Curvado Esquerda.</option>
-                    <option>Reto.</option>
-                    <option>Curvado Direita.</option>
+                  <select class="form-control" id="select-legs" onchange='changeLegs(this.value);'>
+                    <option value=0></option>
+                    <option value=1>Curvado Esquerda.</option>
+                    <option value=2>Reto.</option>
+                    <option value=3>Curvado Direita.</option>
                   </select>
 
                   <br>
 
                   <label for="select-feet">os pezao</label>
-                  <select class="form-control" id="select-feet">
-                    <option></option>
-                    <option>Cuei.</option>
-                    <option>Cobra.</option>
-                    <option>Dedo.</option>
+                  <select class="form-control" id="select-feet" onchange='changeFeet(this.value);'>
+                    <option value=0></option>
+                    <option value=1>Cuei.</option>
+                    <option value=2>Cobra.</option>
+                    <option value=3>Dedo.</option>
                   </select>
                 </div>
               </form>
