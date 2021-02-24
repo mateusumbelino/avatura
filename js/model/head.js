@@ -48,67 +48,65 @@ class head extends shape
     getEyesSpacing()
     {
         let spacing = [];
-        switch(this.id) {
-            case '1':
-                spacing['top'] = -11;   
-                spacing['left'] = 240; 
-                break;
-            case '2':
-                spacing['top'] = -10;   
-                spacing['left'] = 143; 
-                break;
-            case '3':
+        switch (this.id) {
+            case 1:
                 spacing['top'] = 0;   
-                spacing['left'] = 222; 
+                spacing['left'] = 0; 
+                break;
+            case 2:
+                spacing['top'] = 0;   
+                spacing['left'] = 0; 
+                break;
+            case 3:
+                spacing['top'] = 0;   
+                spacing['left'] = 0; 
                 break;
         }
-        spacing['index'] = 5;
+        spacing['index'] = 7;
         return spacing;
     }
 
     getEarSpacing(ear)
     {
         let spacing = [];
-        switch(this.id) {
-            case '1':
+        spacing['index'] = 6
+        switch (this.id) {
+            case 1:
                 spacing['top'] = -200 - ((ear-1)*200);  
                 switch(ear)
                 {
-                    case '1': 
+                    case 1: 
                         spacing['left'] = -90;  
-                        spacing['index'] = -1;
                         break;
-                    case '2':
+                    case 2:
                         spacing['left'] = 105;  
                         spacing['index'] = -1;
                         spacing['flip'] = true;
                         break;
                 }
                 break;
-            case '2':
+            case 2:
                 spacing['top'] = -180 - ((ear-1)*200);
                 switch(ear)
                 {
-                    case '1': 
+                    case 1: 
                         spacing['left'] = -100;  
-                        spacing['index'] = -1;
                         break;
-                    case '2':
+                    case 2:
                         spacing['left'] = 150;  
                         spacing['index'] = -1;
                         spacing['flip'] = true;
                         break;
                 } 
                 break;
-            case '3':
+            case 3:
                 spacing['top'] = -175 - ((ear-1)*200);  
                 switch(ear)
                 {
-                    case '1': 
+                    case 1: 
                         spacing['left'] = -80;  
-                        spacing['index'] = -1;
                         break;
-                    case '2':
+                    case 2:
                         spacing['left'] = 130;  
                         spacing['index'] = -1;
                         spacing['flip'] = true;

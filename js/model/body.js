@@ -54,26 +54,23 @@ class body extends shape
     getHeadSpacing()
     {
         let spacing = [];
-        switch(this.id) {
-            case '1':
+        switch (this.id) {
+            case 1:
                 spacing['top'] = -12;   
                 spacing['left'] = 250; 
                 break;
-            case '2':
+            case 2:
                 spacing['top'] = -13;   
                 spacing['left'] = 248; 
                 break;
-            case '3':
+            case 3:
                 spacing['top'] = -19;   
                 spacing['left'] = 425; 
                 break;
-            case '4':
+            case 4:
                 spacing['top'] = -2;   
                 spacing['left'] = 245; 
                 break;
-            default:
-                spacing['top'] = 0;   
-                spacing['left'] = 0; 
         }
         return spacing
     }
@@ -81,72 +78,72 @@ class body extends shape
     getArmSpacing(arm)
     {
         let spacing = [];
-        switch(this.id) {
-            case '1':
+        switch (this.id) {
+            case 1:
                 switch(arm)
                 {
-                    case '1':
+                    case 1:
                         spacing['top'] = -110; 
                         spacing['left'] = 280;  
                         spacing['index'] = 2;
                         break;
-                    case '2':
+                    case 2:
                         spacing['top'] = -522; 
                         spacing['left'] = 450;  
                         spacing['index'] = 1;
                         break;
                 }
                 break;
-            case '2':
+            case 2:
                 switch(arm)
                 {
-                    case '1':
+                    case 1:
                         spacing['top'] = -110; 
                         spacing['left'] = 260;  
                         spacing['index'] = 1;
                         break;
-                    case '2':
+                    case 2:
                         spacing['top'] = -543; 
                         spacing['left'] = 450;  
                         spacing['index'] = 0;
                         break;
                 }
                 break;
-            case '3':
+            case 3:
                 switch(arm)
                 {
-                    case '1':
+                    case 1:
                         spacing['top'] = -130; 
                         spacing['left'] = 465;  
                         spacing['index'] = 1;
                         break;
-                    case '2':
+                    case 2:
                         spacing['top'] = -530; 
                         spacing['left'] = 595;  
                         spacing['index'] = 0;
                         break;
                 }
                 break;
-            case '4':
+            case 4:
                 switch(arm)
                 {
-                    case '1':
+                    case 1:
                         spacing['top'] = -143; 
                         spacing['left'] = 457;  
                         spacing['index'] = 4;
                         break;
-                    case '2':
+                    case 2:
                         spacing['top'] = -530; 
                         spacing['left'] = -15;  
                         spacing['index'] = 4;
                         spacing['flip'] = true;
                         break;
-                    case '3':
+                    case 3:
                         spacing['top'] = -775; 
                         spacing['left'] = 480;  
                         spacing['index'] = 3;
                         break;
-                    case '4':
+                    case 4:
                         spacing['top'] = -1180; 
                         spacing['left'] = 5;  
                         spacing['index'] = 4;
@@ -161,75 +158,75 @@ class body extends shape
     getLegSpacing(leg)
     {
         let spacing = [];
-        let LegHeight = 375;
-        switch(this.id) {
-            case '1':
+        let legHeight = 375;
+        switch (this.id) {
+            case 1:
                 spacing['top'] = -564; 
                 spacing['left'] = 275;  
                 spacing['index'] = 1;
                 break;
-            case '2':
+            case 2:
                 switch(leg)
                 {
-                    case '1':
+                    case 1:
                         spacing['top'] = -600; 
                         spacing['left'] = 170;  
                         spacing['index'] = 1;
                         break;
-                    case '2':
+                    case 2:
                         spacing['top'] = -973; 
                         spacing['left'] = 320;  
                         spacing['index'] = 0;
                         break;
                 }
                 break;
-            case '3':
-                spacing['top'] = -595-((leg-1)*LegHeight);
+            case 3:
+                spacing['top'] = -595-((leg-1)*legHeight);
                 switch(leg)
                 {
-                    case '1':
+                    case 1:
                         spacing['left'] = 400;  
                         spacing['index'] = -1;
                         break;
-                    case '2':
+                    case 2:
                         spacing['left'] = 310;  
                         spacing['index'] = 1;
                         break;
-                    case '3':
+                    case 3:
                         spacing['left'] = 180;  
                         spacing['index'] = -1;
                         break;
-                    case '4':
+                    case 4:
                         spacing['left'] = 90;  
                         spacing['index'] = 1;
                         break;
                 }
                 break;
-            case '4':
-                spacing['top'] = -1360-((leg-1)*LegHeight); 
+            case 4:
+                spacing['top'] = -1360-((leg-1)*legHeight); 
                 switch(leg)
                 {
-                    case '1':
+                    case 1:
                         spacing['left'] = 435;  
                         spacing['index'] = -1;
                         break;
-                    case '2':
+                    case 2:
                         spacing['left'] = 380;  
                         spacing['index'] = 1;
                         break;
-                    case '3':
+                    case 3:
                         spacing['left'] = 275;  
                         spacing['index'] = -1;
                         break;
-                    case '4':
+                    case 4:
                         spacing['left'] = 190;  
                         spacing['index'] = 1;
                         break;
-                    case '5':
+                    case 5:
                         spacing['left'] = 95;  
                         spacing['index'] = -1;
                         break;
-                    case '6':
+                    case 6:
                         spacing['left'] = 40;  
                         spacing['index'] = 1;
                         break;

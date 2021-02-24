@@ -30,16 +30,16 @@ class arms extends shape
     getHandSpacing()
     {
         let spacing = [];
-        switch(this.id) {
-            case '1':
+        switch (this.id) {
+            case 1:
                 spacing['top'] = -11;   
                 spacing['left'] = 240; 
                 break;
-            case '2':
+            case 2:
                 spacing['top'] = -10;   
                 spacing['left'] = 143; 
                 break;
-            case '3':
+            case 3:
                 spacing['top'] = 0;   
                 spacing['left'] = 222; 
                 break;

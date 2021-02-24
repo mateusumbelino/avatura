@@ -30,16 +30,16 @@ class legs extends shape
     getFootSpacing()
     {
         let spacing = [];
-        switch(this.id) {
-            case '1':
+        switch (this.id) {
+            case 1:
                 spacing['top'] = 198;   
                 spacing['left'] = 75; 
                 break;
-            case '2':
+            case 2:
                 spacing['top'] = 192;   
                 spacing['left'] = 143; 
                 break;
-            case '3':
+            case 3:
                 spacing['top'] = 190;   
                 spacing['left'] = 80; 
                 break;
