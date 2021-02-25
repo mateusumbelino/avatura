@@ -30,6 +30,36 @@ class head extends shape
                 'countEars': 2,
                 'name': 'Triangle' 
             },
+            4: 
+            {
+                'countEyes': 1,
+                'countEars': 2,
+                'name': 'Doll' 
+            },
+            5: 
+            {
+                'countEyes': 1,
+                'countEars': 2,
+                'name': 'Egg' 
+            },
+            6: 
+            {
+                'countEyes': 1,
+                'countEars': 2,
+                'name': 'Heart3D' 
+            },
+            7: 
+            {
+                'countEyes': 1,
+                'countEars': 2,
+                'name': 'Cabagge' 
+            },
+            8: 
+            {
+                'countEyes': 1,
+                'countEars': 2,
+                'name': 'Gem' 
+            }
         };
         super(id, path, options);
         
@@ -113,7 +143,77 @@ class head extends shape
                         break;
                 } 
                 break;
-        }
+            case 4:
+                spacing['top'] = -200 - ((ear-1)*200);  
+                switch(ear)
+                {
+                    case 1: 
+                        spacing['left'] = -90;  
+                        break;
+                    case 2:
+                        spacing['left'] = 105;  
+                        spacing['index'] = -1;
+                        spacing['flip'] = true;
+                        break;
+                }
+                break;
+            case 5:
+                spacing['top'] = -200 - ((ear-1)*200);  
+                switch(ear)
+                {
+                    case 1: 
+                        spacing['left'] = -90;  
+                        break;
+                    case 2:
+                        spacing['left'] = 105;  
+                    spacing['index'] = -1;
+                        spacing['flip'] = true;
+                        break;
+                }
+                break;
+            case 6:
+                spacing['top'] = -200 - ((ear-1)*200);  
+                switch(ear)
+                {
+                    case 1: 
+                        spacing['left'] = -90;  
+                        break;
+                    case 2:
+                        spacing['left'] = 105;  
+                    spacing['index'] = -1;
+                        spacing['flip'] = true;
+                        break;
+                }
+                break;
+            case 7:
+                spacing['top'] = -200 - ((ear-1)*200);  
+                switch(ear)
+                {
+                    case 1: 
+                        spacing['left'] = -90;  
+                        break;
+                    case 2:
+                        spacing['left'] = 105;  
+                    spacing['index'] = -1;
+                        spacing['flip'] = true;
+                        break;
+                }
+                break;
+            case 8:
+                spacing['top'] = -200 - ((ear-1)*200);  
+                switch(ear)
+                {
+                    case 1: 
+                        spacing['left'] = -90;  
+                        break;
+                    case 2:
+                        spacing['left'] = 105;  
+                    spacing['index'] = -1;
+                        spacing['flip'] = true;
+                        break;
+                }
+                break;
+    }
         return spacing;
     }
 

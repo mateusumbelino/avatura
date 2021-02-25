@@ -36,6 +36,18 @@ class body extends shape
                 'countArms': 4,
                 'name': 'Sixti'  
             },
+            5: 
+            {
+                'countLegs': 3,
+                'countArms': 2,
+                'name': 'noodle3D'  
+            },
+            6: 
+            {
+                'countLegs': 2,
+                'countArms': 4,
+                'name': 'Gel'  
+            },
         };
         super(id, path, options);
         
@@ -68,6 +80,14 @@ class body extends shape
                 spacing['left'] = 425; 
                 break;
             case 4:
+                spacing['top'] = -2;   
+                spacing['left'] = 245; 
+                break;
+            case 5:
+                spacing['top'] = -2;   
+                spacing['left'] = 245; 
+                break;
+            case 6:
                 spacing['top'] = -2;   
                 spacing['left'] = 245; 
                 break;
@@ -125,6 +145,49 @@ class body extends shape
                 }
                 break;
             case 4:
+                switch(arm)
+                {
+                    case 1:
+                        spacing['top'] = -143; 
+                        spacing['left'] = 457;  
+                        spacing['index'] = 4;
+                        break;
+                    case 2:
+                        spacing['top'] = -530; 
+                        spacing['left'] = -15;  
+                        spacing['index'] = 4;
+                        spacing['flip'] = true;
+                        break;
+                    case 3:
+                        spacing['top'] = -775; 
+                        spacing['left'] = 480;  
+                        spacing['index'] = 3;
+                        break;
+                    case 4:
+                        spacing['top'] = -1180; 
+                        spacing['left'] = 5;  
+                        spacing['index'] = 4;
+                        spacing['flip'] = true;
+                        break;
+                }
+                break;
+            case 5:
+                switch(arm)
+                {
+                    case 1:
+                        spacing['top'] = -143; 
+                        spacing['left'] = 457;  
+                        spacing['index'] = 4;
+                        break;
+                    case 2:
+                        spacing['top'] = -530; 
+                        spacing['left'] = -15;  
+                        spacing['index'] = 4;
+                        spacing['flip'] = true;
+                        break;
+                }
+                break;
+            case 6:
                 switch(arm)
                 {
                     case 1:
@@ -228,6 +291,38 @@ class body extends shape
                         break;
                     case 6:
                         spacing['left'] = 40;  
+                        spacing['index'] = 1;
+                        break;
+                }
+                break;
+            case 5:
+                spacing['top'] = -595-((leg-1)*legHeight);
+                switch(leg)
+                {
+                    case 1:
+                        spacing['left'] = 400;  
+                        spacing['index'] = -1;
+                        break;
+                    case 2:
+                        spacing['left'] = 310;  
+                        spacing['index'] = 1;
+                        break;
+                    case 3:
+                        spacing['left'] = 180;  
+                        spacing['index'] = -1;
+                        break;
+                }
+                break;
+            case 6:
+                spacing['top'] = -1330-((leg-1)*legHeight);
+                switch(leg)
+                {
+                    case 1:
+                        spacing['left'] = 400;  
+                        spacing['index'] = -1;
+                        break;
+                    case 2:
+                        spacing['left'] = 310;  
                         spacing['index'] = 1;
                         break;
                 }

@@ -21,6 +21,14 @@ class ears extends shape
             {
                 'name': 'HairTuf' 
             },
+            4: 
+            {
+                'name': 'Planta1' 
+            },
+            5: 
+            {
+                'name': 'Planta2' 
+            },
         };
         super(id, path, options);
     }

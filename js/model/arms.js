@@ -22,6 +22,18 @@ class arms extends shape
             {
                 'name': 'Stick' 
             },
+            4: 
+            {
+                'name': 'Robot' 
+            },
+            5: 
+            {
+                'name': 'Wing' 
+            },
+            6: 
+            {
+                'name': 'Noodle3D' 
+            },
         };
         super(id, path, options);
         
@@ -40,6 +52,18 @@ class arms extends shape
                 spacing['left'] = 143; 
                 break;
             case 3:
+                spacing['top'] = 0;   
+                spacing['left'] = 222; 
+                break;
+            case 4:
+                spacing['top'] = 0;   
+                spacing['left'] = 222; 
+                break;
+            case 5:
+                spacing['top'] = 0;   
+                spacing['left'] = 222; 
+                break;
+            case 6:
                 spacing['top'] = 0;   
                 spacing['left'] = 222; 
                 break;

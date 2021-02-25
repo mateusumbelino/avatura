@@ -21,6 +21,26 @@ class eyes extends shape
             {
                 'name': 'Alien' 
             },
+            4: 
+            {
+                'name': 'pilulas' 
+            },
+            5: 
+            {
+                'name': 'flor' 
+            },
+            6: 
+            {
+                'name': 'ndormir' 
+            },
+            7: 
+            {
+                'name': 'fechados' 
+            },
+            8: 
+            {
+                'name': 'magico' 
+            },
         };
         super(id, path, options);
     }
