@@ -265,6 +265,10 @@ const addLegs = () =>
         legN.style.left = legPos['left'];
         legN.style.top = legPos['top'];
         legN.style.zIndex = legPos['index'];
+        if (legPos['flip'])
+        {
+            legN.style.transform = 'scaleX(-1)';
+        }
         let footN = document.createElement('div');
         footN.className = RESULT_FOOT_CLASS + i;
         let footSpacing = LEGS.getFootSpacing();
@@ -293,6 +297,10 @@ const changeLegs = (newLegs) =>
             legsArr[i].style.left = legPos['left'];
             legsArr[i].style.top = legPos['top'];
             legsArr[i].style.zIndex = legPos['index'];
+            if (legPos['flip'])
+            {
+                legsArr[i].style.transform = 'scaleX(-1)';
+            }
             legsArr[i].style.backgroundImage = `url(${LEGS.getImg()})`;
         }
     }

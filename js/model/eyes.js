@@ -41,6 +41,14 @@ class eyes extends shape
             {
                 'name': 'magico' 
             },
+            9: 
+            {
+                'name': 'reptil' 
+            },
+            10: 
+            {
+                'name': 'floppa' 
+            }
         };
         super(id, path, options);
     }

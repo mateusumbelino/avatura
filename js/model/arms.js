@@ -34,6 +34,10 @@ class arms extends shape
             {
                 'name': 'Noodle3D' 
             },
+            7: 
+            {
+                'name': 'reptil' 
+            }
         };
         super(id, path, options);
         
@@ -42,33 +46,37 @@ class arms extends shape
     getHandSpacing()
     {
         let spacing = [];
+        spacing['index'] = 5;
         switch (this.id) {
             case 1:
-                spacing['top'] = -11;   
-                spacing['left'] = 240; 
+                spacing['top'] = -180;   
+                spacing['left'] = 160; 
                 break;
             case 2:
-                spacing['top'] = -10;   
-                spacing['left'] = 143; 
+                spacing['top'] = -170;   
+                spacing['left'] = 75; 
                 break;
             case 3:
-                spacing['top'] = 0;   
-                spacing['left'] = 222; 
+                spacing['top'] = -155;   
+                spacing['left'] = 140; 
                 break;
             case 4:
-                spacing['top'] = 0;   
-                spacing['left'] = 222; 
+                spacing['top'] = -110;   
+                spacing['left'] = 165; 
                 break;
-            case 5:
-                spacing['top'] = 0;   
-                spacing['left'] = 222; 
+            case 5: //Asas
+                spacing['top'] = 105;   
+                spacing['left'] = 65; 
                 break;
             case 6:
-                spacing['top'] = 0;   
-                spacing['left'] = 222; 
+                spacing['top'] = 85;   
+                spacing['left'] = 180; 
+                break;
+            case 7:
+                spacing['top'] = 5;   
+                spacing['left'] = 70; 
                 break;
         }
-        spacing['index'] = 5;
         return spacing;
     }
 

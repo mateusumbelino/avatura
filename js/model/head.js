@@ -59,6 +59,12 @@ class head extends shape
                 'countEyes': 1,
                 'countEars': 2,
                 'name': 'Gem' 
+            },
+            9: 
+            {
+                'countEyes': 1,
+                'countEars': 2,
+                'name': 'reptil' 
             }
         };
         super(id, path, options);
@@ -90,6 +96,10 @@ class head extends shape
             case 3:
                 spacing['top'] = 0;   
                 spacing['left'] = 0; 
+                break;
+            case 9:
+                spacing['top'] = 35;   
+                spacing['left'] = -10; 
                 break;
         }
         spacing['index'] = 7;
@@ -213,6 +223,20 @@ class head extends shape
                         break;
                 }
                 break;
+                case 9:
+                    switch(ear)
+                    {
+                        case 1: 
+                            spacing['top'] = -212;  
+                            spacing['left'] = -100;  
+                            break;
+                        case 2:
+                            spacing['top'] = -415;  
+                            spacing['left'] = 150;  
+                            spacing['flip'] = true;
+                            break;
+                    }
+                    break;
     }
         return spacing;
     }

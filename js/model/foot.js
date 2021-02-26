@@ -21,6 +21,14 @@ class foot extends shape
             {
                 'name': 'Toe' 
             },
+            4: 
+            {
+                'name': 'reptil' 
+            },
+            5: 
+            {
+                'name': 'Timbs' 
+            },
         };
         super(id, path, options);
     }

@@ -11,32 +11,40 @@ class hands extends shape
             },
             1: 
             {
-                'name': 'Claw' 
+                'name': 'enamel' 
             },
             2: 
             {
-                'name': 'Tentacle'  
+                'name': 'planta' 
             },
             3: 
             {
-                'name': 'ThumbsUp' 
+                'name': 'ossuda1' 
             },
             4: 
             {
-                'name': 'enamel' 
+                'name': 'dark3D' 
             },
             5: 
             {
-                'name': 'planta' 
+                'name': 'reptil' 
             },
             6: 
             {
-                'name': 'ossuda1' 
+                'name': 'ok' 
             },
             7: 
             {
-                'name': 'dark3D' 
+                'name': 'thumbsup' 
             },
+            8: 
+            {
+                'name': 'floppa' 
+            },
+            9: 
+            {
+                'name': 'speghetti' 
+            }
         };
         super(id, path, options);
     }
