@@ -87,6 +87,11 @@ const changeHead = (newHead) =>
         let headPos = BODY.getHeadSpacing();
         document.getElementById(RESULT_HEAD).style.top = `${headPos['top']}px`;
         document.getElementById(RESULT_HEAD).style.left = `${headPos['left']}px`;
+        document.getElementById(RESULT_HEAD).style.zIndex = headPos['index'];
+        
+        if(headPos['rotate']) document.getElementById(RESULT_HEAD).style.transform = `rotate(${headPos['rotate']}deg)`;
+        else document.getElementById(RESULT_HEAD).style.transform = `none`;
+        
         document.getElementById(RESULT_HEAD).style.backgroundImage = `url(${HEAD.getImg()})`; 
     }
     addEyes();
@@ -187,10 +192,18 @@ const addArms = () =>
         armN.style.left = armPos['left'];
         armN.style.top = armPos['top'];
         armN.style.zIndex = armPos['index'];
+        
+        let transformString = "";
+        if (armPos['rotate'])
+        {
+            transformString += 'rotate('+armPos['rotate']+'deg) ';
+        }
         if (armPos['flip'])
         {
-            armN.style.transform = 'scaleX(-1)';
+            transformString += 'scaleX(-1) ';
         }
+        armN.style.transform = transformString;
+
         let handN = document.createElement('div');
         handN.className = RESULT_HANDS_CLASS + i;
         let hand = document.createElement('div');
@@ -222,10 +235,18 @@ const changeArms = (newArms) =>
             armsArr[i].style.left = armPos['left'];
             armsArr[i].style.top = armPos['top'];
             armsArr[i].style.zIndex = armPos['index'];
+            
+            let transformString = "";
+            if (armPos['rotate'])
+            {
+                transformString += 'rotate('+armPos['rotate']+'deg) ';
+            }
             if (armPos['flip'])
             {
-                armsArr[i].style.transform = 'scaleX(-1)';
+                transformString += 'scaleX(-1) ';
             }
+            armsArr[i].style.transform = transformString;
+
             armsArr[i].style.backgroundImage = `url(${ARMS.getImg()})`;
         }
     }
@@ -248,6 +269,16 @@ const changeHands = (newHands) =>
             handsArr[i].style.left = handSpacing['left'];
             handsArr[i].style.top = handSpacing['top'];
             handsArr[i].style.zIndex = handSpacing['index'];
+            let transformString = "";
+            if (handSpacing['rotate'])
+            {
+                transformString += 'rotate('+handSpacing['rotate']+'deg) ';
+            }
+            if (handSpacing['flip'])
+            {
+                transformString += 'scaleX(-1) ';
+            }
+            handsArr[i].style.transform = transformString;
             handsArr[i].style.backgroundImage = `url(${HANDS.getImg()})`;
         }
     }
@@ -265,10 +296,18 @@ const addLegs = () =>
         legN.style.left = legPos['left'];
         legN.style.top = legPos['top'];
         legN.style.zIndex = legPos['index'];
+        
+        let transformString = "";
+        if (legPos['rotate'])
+        {
+            transformString += 'rotate('+legPos['rotate']+'deg) ';
+        }
         if (legPos['flip'])
         {
-            legN.style.transform = 'scaleX(-1)';
+            transformString += 'scaleX(-1) ';
         }
+        legN.style.transform = transformString;
+
         let footN = document.createElement('div');
         footN.className = RESULT_FOOT_CLASS + i;
         let footSpacing = LEGS.getFootSpacing();
@@ -297,10 +336,18 @@ const changeLegs = (newLegs) =>
             legsArr[i].style.left = legPos['left'];
             legsArr[i].style.top = legPos['top'];
             legsArr[i].style.zIndex = legPos['index'];
+            
+            let transformString = "";
+            if (legPos['rotate'])
+            {
+                transformString += 'rotate('+legPos['rotate']+'deg) ';
+            }
             if (legPos['flip'])
             {
-                legsArr[i].style.transform = 'scaleX(-1)';
+                transformString += 'scaleX(-1) ';
             }
+            legsArr[i].style.transform = transformString;
+
             legsArr[i].style.backgroundImage = `url(${LEGS.getImg()})`;
         }
     }
@@ -326,4 +373,19 @@ const changeFeet = (newFeet) =>
             footArr[i].style.backgroundImage = `url(${FOOT.getImg()})`;
         }
     }
+}
+
+//Obrigado Rodrigo Rodrigues
+function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+}
+
+const randomizeAll = () =>
+{
+    document.querySelectorAll('select').forEach(select => {
+        const maxRandomNumber = select.options.length
+        const randomNumber = getRandomArbitrary(1, maxRandomNumber)
+        select.selectedIndex = randomNumber
+        select.onchange() //MUDAR ISSO
+    })
 }

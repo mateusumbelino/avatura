@@ -44,7 +44,19 @@ class hands extends shape
             9: 
             {
                 'name': 'speghetti' 
-            }
+            },
+            10: 
+            {
+                'name': 'PixelRobot' 
+            },
+            11: 
+            {
+                'name': 'King2' 
+            },
+            12: 
+            {
+                'name': 'King' 
+            },
         };
         super(id, path, options);
     }

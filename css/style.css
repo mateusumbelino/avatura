@@ -1,11 +1,35 @@
+body {
+    overflow-x: hidden;
+    /*overflow-y: hidden;*/
+}
+
+#site-body {
+}
+
 .form-container {
-    width: 40%;
-    padding: 15px 35px;
+    width: 35%;
+    padding: 50px;
+    font-weight: 600;
+    font-size: 18px;
+    color: white;
+    text-shadow: 1px 2px #000000;
+    background-size: cover;
+    background-image: url(../data/formBG/wood.jpg);
+    border-right: 25px solid #ccc;
+    border-image: url(../data/formBG/wood-white.jpg) 1;
+}
+
+select {
+    margin-bottom: 15px;
 }
 
 .creature-container {
-    width: 60%;
-    padding-top: 2%;
+    width: 65%;
+    padding-top: 5%;
+    padding-left: 5%;
+    background-size: cover;
+    background-image: url(../data/creatureBG/forest.jpg);
+    z-index: -5;
 }
 
 #result-body {
@@ -23,11 +47,11 @@
 }
 
 #result-arms {
-    height: 100px;
+    height: 0px;
 }
 
 #result-legs {
-    height: 100px;
+    height: 0px;
 }
 
 .result-eye  {

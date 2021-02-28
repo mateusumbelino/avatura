@@ -48,6 +48,18 @@ class eyes extends shape
             10: 
             {
                 'name': 'floppa' 
+            },
+            11: 
+            {
+                'name': 'RedMonster' 
+            },
+            12: 
+            {
+                'name': 'PixelRobot' 
+            },
+            13: 
+            {
+                'name': 'King' 
             }
         };
         super(id, path, options);

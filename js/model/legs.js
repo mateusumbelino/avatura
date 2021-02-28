@@ -24,7 +24,7 @@ class legs extends shape
             },
             4: 
             {
-                'name': 'reptil' 
+                'name': 'ReptilLeg' 
             },
             5: 
             {
@@ -49,7 +49,15 @@ class legs extends shape
             10: 
             {
                 'name': 'Toothpick' 
-            }
+            },
+            11: 
+            {
+                'name': 'RedMonster' 
+            },
+            12: 
+            {
+                'name': 'PixelRobot' 
+            },
         };
         super(id, path, options);
         
@@ -98,6 +106,14 @@ class legs extends shape
             case 10:
                 spacing['top'] = 133;   
                 spacing['left'] = 125; 
+                break;
+            case 11: //Red Monster
+                spacing['top'] = 140;   
+                spacing['left'] = 115; 
+                break;
+            case 12: //PixelRobot   
+                spacing['top'] = 23;   
+                spacing['left'] = 120; 
                 break;
         }
         spacing['index'] = 5;

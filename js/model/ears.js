@@ -37,6 +37,14 @@ class ears extends shape
             {
                 'name': 'floppa' 
             },
+            8: 
+            {
+                'name': 'RedMonster' 
+            },
+            9: 
+            {
+                'name': 'PixelRobot' 
+            },
         };
         super(id, path, options);
     }
