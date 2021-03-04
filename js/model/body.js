@@ -579,4 +579,17 @@ class body extends shape
     }
 
 
+    getBackSpacing()
+    {
+        let spacing = [];
+        switch (this.id) {
+            default:
+                spacing['top'] = -110; 
+                spacing['left'] = 334;  
+                spacing['index'] = -2;
+                break;
+        }
+        return spacing;
+    }
+
 }

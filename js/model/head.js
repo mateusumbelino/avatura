@@ -10,66 +10,88 @@ class head extends shape
             {
                 'countEyes': 0,
                 'countEars': 0,
+                'countMouth': 0,
+                'countNose': 0,
                 'name': null 
             },
             1: 
             {
                 'countEyes': 1,
                 'countEars': 2,
+                'countMouth': 1,
+                'countNose': 1,
                 'name': 'RedMonster2' 
             },
             2: 
             {
                 'countEyes': 1,
                 'countEars': 2,
+                'countMouth': 1,
+                'countNose': 1,
                 'name': 'RedMonster'  
             },
             3: 
             {
                 'countEyes': 1,
                 'countEars': 2,
+                'countMouth': 1,
+                'countNose': 1,
                 'name': 'King' 
             },
             4: 
             {
                 'countEyes': 1,
                 'countEars': 2,
+                'countMouth': 1,
+                'countNose': 1,
                 'name': 'Doll' 
             },
             5: 
             {
                 'countEyes': 1,
                 'countEars': 2,
+                'countMouth': 1,
+                'countNose': 1,
                 'name': 'Egg' 
             },
             6: 
             {
                 'countEyes': 1,
                 'countEars': 2,
+                'countMouth': 1,
+                'countNose': 1,
                 'name': 'Heart3D' 
             },
             7: 
             {
                 'countEyes': 1,
                 'countEars': 2,
+                'countMouth': 1,
+                'countNose': 1,
                 'name': 'Cabagge' 
             },
             8: 
             {
                 'countEyes': 1,
                 'countEars': 2,
+                'countMouth': 1,
+                'countNose': 1,
                 'name': 'Gem' 
             },
             9: 
             {
                 'countEyes': 1,
                 'countEars': 2,
+                'countMouth': 1,
+                'countNose': 1,
                 'name': 'reptil' 
             },
             10: 
             {
                 'countEyes': 1,
                 'countEars': 2,
+                'countMouth': 1,
+                'countNose': 1,
                 'name': 'PixelRobot' 
             }
         };
@@ -85,6 +107,16 @@ class head extends shape
     getCountEars()
     {
         return this.options[this.id]['countEars'];
+    }
+
+    getCountNose()
+    {
+        return this.options[this.id]['countNose'];
+    }
+
+    getCountMouth()
+    {
+        return this.options[this.id]['countMouth'];
     }
 
     getEyesSpacing()
@@ -261,6 +293,32 @@ class head extends shape
                     }
                     break;
     }
+        return spacing;
+    }
+
+    getNoseSpacing()
+    {
+        let spacing = [];
+        switch (this.id) {
+            default:
+                spacing['top'] = -489;   
+                spacing['left'] = 98; 
+                break;
+        }
+        spacing['index'] = 9;
+        return spacing;
+    }
+
+    getMouthSpacing()
+    {
+        let spacing = [];
+        switch (this.id) {
+            default:
+                spacing['top'] = -589;   
+                spacing['left'] = 4; 
+                break;
+        }
+        spacing['index'] = 10;
         return spacing;
     }
 
