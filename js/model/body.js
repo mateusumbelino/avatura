@@ -303,18 +303,18 @@ class body extends shape
                         break;
                 }
                 break;
-            case 9:
+            case 9: //Camel
                 switch(arm)
                 {
                     case 1:
-                        spacing['top'] = -110; 
-                        spacing['left'] = 260;  
+                        spacing['top'] = -10; 
+                        spacing['left'] = 475;  
                         spacing['index'] = 1;
                         break;
                     case 2:
-                        spacing['top'] = -543; 
-                        spacing['left'] = 450;  
-                        spacing['index'] = 0;
+                        spacing['top'] = -430; 
+                        spacing['left'] = 555;  
+                        spacing['index'] = -1;
                         break;
                 }
                 break;
