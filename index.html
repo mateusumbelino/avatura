@@ -13,6 +13,9 @@
     <script src="js/model/hands.js"></script>
     <script src="js/model/head.js"></script>
     <script src="js/model/legs.js"></script>
+    <script src="js/model/mouth.js"></script>
+    <script src="js/model/nose.js"></script>
+    <script src="js/model/back.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/custom.js"></script>
 </head>
@@ -93,6 +96,18 @@
                     <option value=13>Minha realeza faz com que eu seja obrigado a lhe encarar.</option>
                   </select>
 
+                  <label for="select-nose">nereba</label>
+                  <select class="form-control" id="select-nose" onchange='changeNose(this.value);'>
+                    <option value=0></option>
+                    <option value=1>Amor.</option>
+                  </select>
+
+                  <label for="select-mouth">beiço</label>
+                  <select class="form-control" id="select-mouth" onchange='changeMouth(this.value);'>
+                    <option value=0></option>
+                    <option value=1>Anime.</option>
+                  </select>
+
                   <label for="select-arms">os bração</label>
                   <select class="form-control" id="select-arms" onchange='changeArms(this.value);'>
                     <option value=0></option>
@@ -152,6 +167,12 @@
                     <option value=6>Feitos especificamente para lhe caçar.</option>
                     <option value=7>Meus pixels mapeiam a terra.</option>
                   </select>
+
+                  <label for="select-back">costas</label>
+                  <select class="form-control" id="select-back" onchange='changeBack(this.value);'>
+                    <option value=0></option>
+                    <option value=1>rabo.</option>
+                  </select>
                 </div>
               </form>
 
@@ -174,6 +195,9 @@
               </div>
 
               <div id="result-legs">
+
+              </div>
+              <div id="result-back">
 
               </div>
             </div>

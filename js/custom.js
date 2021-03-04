@@ -7,6 +7,9 @@ const FOOT = new foot();
 const HEAD = new head()
 const EYES = new eyes();
 const EARS = new ears();
+const MOUTH = new mouth();
+const NOSE = new nose();
+const BACK = new back();
 
 const RESULT_BODY = 'result-body';
 
@@ -32,6 +35,8 @@ const HANDS_OPTION = 'select-hands';
 
 const RESULT_LEGS = 'result-legs';
 
+const RESULT_BACK = 'result-back';
+
 const RESULT_LEG_CLASS = 'result-leg leg-n';
 
 const RESULT_LEG_SINGLE_CLASS = 'result-leg';
@@ -42,6 +47,8 @@ const RESULT_FOOT_CLASS = 'result-foot foot-n';
 
 const LEGS_OPTION = 'select-legs';
 
+const BACK_OPTION = 'select-back';
+
 const FOOT_OPTION = 'select-feet';
 
 const HEAD_OPTION = 'select-head';
@@ -50,13 +57,25 @@ const EYES_OPTION = 'select-eye';
 
 const EARS_OPTION = 'select-ear';
 
+const MOUTH_OPTION = 'select-mouth';
+
+const NOSE_OPTION = 'select-mouth';
+
 const RESULT_EAR = 'result-ear';
 
 const RESULT_EYES = 'result-eye';
 
+const RESULT_MOUTH = 'result-mouth';
+
+const RESULT_NOSE = 'result-nose';
+
 const RESULT_EYES_CLASS = 'result-eye eye-n';
 
 const RESULT_EARS_CLASS = 'result-ear ear-n';
+
+const RESULT_MOUTH_CLASS = 'result-mouth mouth-n';
+
+const RESULT_NOSE_CLASS = 'result-nose nose-n';
 
 const changeBody = (newBody) => 
 {
@@ -72,6 +91,7 @@ const changeBody = (newBody) =>
     changeHead(document.getElementById(HEAD_OPTION).value)
     addArms();
     addLegs();
+    changeBack(document.getElementById(BACK_OPTION).value);
 }
 
 const changeHead = (newHead) =>
@@ -94,8 +114,12 @@ const changeHead = (newHead) =>
         
         document.getElementById(RESULT_HEAD).style.backgroundImage = `url(${HEAD.getImg()})`; 
     }
+    
     addEyes();
     addEars();
+    addNose();
+    addMouth();
+    
 }
 
 const addEyes = () =>
@@ -176,6 +200,80 @@ const changeEars = (newEars) =>
                 earsArr[i].style.transform = 'scaleX(-1)';
             }
             earsArr[i].style.backgroundImage = `url(${EARS.getImg()})`;
+        }
+    }
+}
+
+const addNose = () =>
+{
+    let countNose = HEAD.getCountNose();
+    for (let i = 1; i <= countNose; i++)
+    {
+        let noseN = document.createElement('div');
+        noseN.className = RESULT_NOSE_CLASS + i;
+        let nosePos = HEAD.getNoseSpacing(i);
+        noseN.style.left = nosePos['left'];
+        noseN.style.top = nosePos['top'];
+        noseN.style.zIndex = nosePos['index'];
+        document.getElementById(RESULT_HEAD).appendChild(noseN);
+    }
+    changeNose(document.getElementById(NOSE_OPTION).value);
+}
+
+const changeNose = (newNose) => 
+{
+    NOSE.setId(parseInt(newNose, 10));
+    let noseArr = document.getElementsByClassName(RESULT_NOSE);
+    for (let i = 0; i < noseArr.length; i++)
+    {
+        if (NOSE.id == 0 || HEAD.id == 0 || BODY.id == 0)
+        {
+            noseArr[i].style.backgroundImage = '';
+        }
+        else
+        {
+            let nosePos = HEAD.getNoseSpacing(i+1);
+            noseArr[i].style.left = nosePos['left'];
+            noseArr[i].style.top = nosePos['top'];
+            noseArr[i].style.zIndex = nosePos['index'];
+            noseArr[i].style.backgroundImage = `url(${NOSE.getImg()})`;
+        }
+    }
+}
+
+const addMouth = () =>
+{
+    let countMouth = HEAD.getCountMouth();
+    for (let i = 1; i <= countMouth; i++)
+    {
+        let mouthN = document.createElement('div');
+        mouthN.className = RESULT_MOUTH_CLASS + i;
+        let mouthPos = HEAD.getMouthSpacing(i);
+        mouthN.style.left = mouthPos['left'];
+        mouthN.style.top = mouthPos['top'];
+        mouthN.style.zIndex = mouthPos['index'];
+        document.getElementById(RESULT_HEAD).appendChild(mouthN);
+    }
+    changeMouth(document.getElementById(MOUTH_OPTION).value);
+}
+
+const changeMouth = (newMouth) => 
+{
+    MOUTH.setId(parseInt(newMouth, 10));
+    let mouthArr = document.getElementsByClassName(RESULT_MOUTH);
+    for (let i = 0; i < mouthArr.length; i++)
+    {
+        if (MOUTH.id == 0 || HEAD.id == 0 || BODY.id == 0)
+        {
+            mouthArr[i].style.backgroundImage = '';
+        }
+        else
+        {
+            let mouthPos = HEAD.getMouthSpacing(i+1);
+            mouthArr[i].style.left = mouthPos['left'];
+            mouthArr[i].style.top = mouthPos['top'];
+            mouthArr[i].style.zIndex = mouthPos['index'];
+            mouthArr[i].style.backgroundImage = `url(${MOUTH.getImg()})`;
         }
     }
 }
@@ -372,6 +470,24 @@ const changeFeet = (newFeet) =>
             footArr[i].style.zIndex = footSpacing['index'];
             footArr[i].style.backgroundImage = `url(${FOOT.getImg()})`;
         }
+    }
+}
+
+const changeBack = (newBack) =>
+{
+    BACK.setId(parseInt(newBack, 10));
+    let back = document.getElementById(RESULT_BACK);
+    if (BACK.id == 0 || BODY.id == 0)
+    {
+        back.style.backgroundImage = '';
+    }
+    else
+    {
+        let backPos = BODY.getBackSpacing();
+        back.style.left = backPos['left'];
+        back.style.top = backPos['top'];
+        back.style.zIndex = backPos['index'];
+        back.style.backgroundImage = `url(${BACK.getImg()})`;
     }
 }
 
