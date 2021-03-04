@@ -3,14 +3,27 @@
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
     <!-- Latest compiled and minified JavaScript -->
     <script src="js/bootstrap/bootstrap.min.js"></script>
-    <script src="js/jquery.min.js"></script>
-
+    <!-- Body changing scripts -->
+    <script src="js/model/shape.js"></script>
+    <script src="js/model/arms.js"></script>
+    <script src="js/model/body.js"></script>
+    <script src="js/model/ears.js"></script>
+    <script src="js/model/eyes.js"></script>
+    <script src="js/model/foot.js"></script>
+    <script src="js/model/hands.js"></script>
+    <script src="js/model/head.js"></script>
+    <script src="js/model/legs.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/custom.js"></script>
 </head>
 
 <body>
-    <div class="row d-flex">
+
+  <div class="row" id="header">
+    <h4>Caricriatura</h4>
+  </div>
+
+    <div class="row d-flex" id="site-body">
         <div class="form-container">
             
           <p>A jornada é longa e árdua.</p>
@@ -18,85 +31,135 @@
             <form>
                 <div class="form-group">
                   <label for="select-body">A base</label>
-                  <select class="form-control" id="select-body">
-                    <option></option>
-                    <option>Unipede.</option>
-                    <option>Bipede.</option>
-                    <option>Caramujo.</option>
-                    <option>Sextuple.</option>
+                  <select class="form-control" id="select-body" onchange='changeBody(this.value);'>
+                    <option value=0></option>
+                    <option value=2>Fui esculpido em mármore mas minha forma é ofensiva.</option>
+                    <option value=3>Levo minha casa em minhas costas.</option>
+                    <option value=4>Minha existência é uma ofensa a tudo que existe.</option>
+                    <option value=5>Dou nós em mim mesmo.</option>
+                    <option value=6>NÃO INGERIR.</option>
+                    <option value=1>Eu rastejo pelo chão e varo a terra.</option>
+                    <option value=7>Minhas escamas roxas me distoam.</option>
+                    <option value=8>Sou da cor dos seus pesadelos.</option>
+                    <option value=9>Vago pelo deserto em busca de respostas.</option>
+                    <option value=10>Os pixels que me compoem representam meu algoritmo.</option>
+                    <option value=11>Sou uma representação universal de realeza.</option>
                   </select>
-
-                  <br>
 
                   <label for="select-head">a gabessa</label>
-                  <select class="form-control" id="select-head">
-                    <option></option>
-                    <option>Oval.</option>
-                    <option>Quadrado.</option>
-                    <option>Triângulo.</option>
+                  <select class="form-control" id="select-head" onchange='changeHead(this.value);'>
+                    <option value=0></option>
+                    <option value=1>A luz reflete em meu mármore.</option>
+                    <option value=4>Vou lhe pedir que tome conta de mim.</option>
+                    <option value=5>Algum dia meu crânio vai rachar.</option>
+                    <option value=6>Minha cabeça pulsa assim como dentro do meu peito.</option>
+                    <option value=7>Você é o que come, e eu sou muito saudável.</option>
+                    <option value=8>Sou precioso. E brilho de dor.</option>
+                    <option value=9>Minhas escamas roxas continuam me distoando.</option>
+                    <option value=2>Vou lhe visitar durante o seu sono.</option>
+                    <option value=10>Meus pixels representam a minha alma.</option>
+                    <option value=3>Respeite a minha realeza pixelizada.</option>
                   </select>
-
-                  <br>
 
                   <label for="select-ear">a zoreia</label>
-                  <select class="form-control" id="select-ear">
-                    <option></option>
-                    <option>Pontudas.</option>
-                    <option>Chifrinho.</option>
-                    <option>Tufo.</option>
+                  <select class="form-control" id="select-ear" onchange='changeEars(this.value);'>
+                    <option value=0></option>
+                    <option value=1>Pontudas.</option>
+                    <option value=2>Chifrinho.</option>
+                    <option value=3>Tufo.</option>
+                    <option value=4>Coma vegetais.</option>
+                    <option value=5>Coma legumes.</option>
+                    <option value=6>Meus sentidos de lagarto me ajudam a captar os sons.</option>
+                    <option value=7>Eu finalmente adiquiri a habilidade de flopar como ninguém.</option>
+                    <option value=8>Minhas antenas vão me ajudar a te encontrar.</option>
+                    <option value=9>Meus transmissores pixelados vão me guiar na matrix.</option>
                   </select>
-
-                  <br>
 
                   <label for="select-eye">ozoi</label>
-                  <select class="form-control" id="select-eye">
-                    <option></option>
-                    <option>Normal.</option>
-                    <option>Zoiao.</option>
-                    <option>Alien.</option>
+                  <select class="form-control" id="select-eye" onchange='changeEyes(this.value);'>
+                    <option value=0></option>
+                    <option value=1>Normal.</option>
+                    <option value=2>Zoiao.</option>
+                    <option value=3>Alien.</option>
+                    <option value=4>Hora do seu medicamento.</option>
+                    <option value=5>Minhas pupilas florescem ao sol.</option>
+                    <option value=6>Estou sem dormir faz um tempo indeterminado.</option>
+                    <option value=10>Meus olhos viram flopagens. Muitas.</option>
+                    <option value=7>Não me perturbe. Preciso recarregar o arco-íris.</option>
+                    <option value=8>Enxergo purpurina. Magia pura.</option>
+                    <option value=9>Meus olhos se movem indepentemente.</option>
+                    <option value=11>Enxergo o medo que vaza de sua alma.</option>
+                    <option value=12>Meus olhos pixelados disfarçam a minha falta de natureza.</option>
+                    <option value=13>Minha realeza faz com que eu seja obrigado a lhe encarar.</option>
                   </select>
-
-                  <br>
 
                   <label for="select-arms">os bração</label>
-                  <select class="form-control" id="select-arms">
-                    <option></option>
-                    <option>Forte.</option>
-                    <option>Macarrão.</option>
-                    <option>Palito.</option>
+                  <select class="form-control" id="select-arms" onchange='changeArms(this.value);'>
+                    <option value=0></option>
+                    <option value=1>Forte.</option>
+                    <option value=2>Macarrão.</option>
+                    <option value=3>Palito.</option>
+                    <option value=4>Minhas articulações um dia ficarão enferrujadas.</option>
+                    <option value=5>Logo vou planar para fora desta tela.</option>
+                    <option value=6>Meu braço transcende essa dimensão.</option>
+                    <option value=7>O preço das minhas escamas foi uma desvantagem de tamanho.</option>
+                    <option value=8>Logo vou me esticar pela escuridão.</option>
+                    <option value=9>Este cano pixelizado representa a minha falta de natureza.</option>
                   </select>
-
-                  <br>
 
                   <label for="select-hands">as mãozinha</label>
-                  <select class="form-control" id="select-hands">
-                    <option></option>
-                    <option>Garra.</option>
-                    <option>Mole.</option>
-                    <option>Joia.</option>
+                  <select class="form-control" id="select-hands" onchange='changeHands(this.value);'>
+                    <option value=0></option>
+                    <option value=1>Paz e amor.</option>
+                    <option value=2>Meus dedos saudáveis vão deixar o mundo mais verde.</option>
+                    <option value=3>Minha pele está próxima demais de meus ossos, mas estou okay.</option>
+                    <option value=4>Estou coberto de óleo. De outra dimensão. Literalmente.</option>
+                    <option value=5>Minhas escamas afinaram meus dedos...</option>
+                    <option value=6>Top.</option>
+                    <option value=7>Beleza então.</option>
+                    <option value=8>Eu flopo, mas não como você imagina.</option>
+                    <option value=9>A janta está pronta!</option>
+                    <option value=10>Meu algoritmo arruma meus pixels para que eu interaja com o exterior</option>
+                    <option value=11>Minha realeza te aceita</option>
+                    <option value=12>Minha realeza te despreza</option>
                   </select>
-
-                  <br>
 
                   <label for="select-legs">as pernoca</label>
-                  <select class="form-control" id="select-legs">
-                    <option></option>
-                    <option>Curvado Esquerda.</option>
-                    <option>Reto.</option>
-                    <option>Curvado Direita.</option>
+                  <select class="form-control" id="select-legs" onchange='changeLegs(this.value);'>
+                    <option value=0></option>
+                    <option value=1>Curvado Esquerda.</option>
+                    <option value=2>Reto.</option>
+                    <option value=3>Curvado Direita.</option>
+                    <option value=4>Minhas escamas também não pouparam minhas pernas.</option>
+                    <option value=5>Estou apenas seguindo a moda, eu acho.</option>
+                    <option value=6>O som ecoa por minhas pernas.</option>
+                    <option value=7>Hmnmngmmmmmmm pasta.</option>
+                    <option value=8>15 centimetros de pura emoção.</option>
+                    <option value=9>Tenha pavor.</option>
+                    <option value=10>Eu tenho medo de QUEBRAR.</option>
+                    <option value=11>Vou atravessar a escuridão.</option>
+                    <option value=12>Meu algoritmo não me deu muitos pixels aqui.</option>
                   </select>
 
-                  <br>
-
                   <label for="select-feet">os pezao</label>
-                  <select class="form-control" id="select-feet">
-                    <option></option>
-                    <option>Cuei.</option>
-                    <option>Cobra.</option>
-                    <option>Dedo.</option>
+                  <select class="form-control" id="select-feet" onchange='changeFeet(this.value);'>
+                    <option value=0></option>
+                    <option value=1>Cuei.</option>
+                    <option value=2>Cobra.</option>
+                    <option value=3>Dedo.</option>
+                    <option value=4>Minhas escamas refletem a luz que bate em meus pés.</option>
+                    <option value=5>Não venha envejar a minha estileira.</option>
+                    <option value=6>Feitos especificamente para lhe caçar.</option>
+                    <option value=7>Meus pixels mapeiam a terra.</option>
                   </select>
                 </div>
               </form>
+
+              <div class="d-flex justify-content-center">
+                <button class="btn btn-danger" onclick="randomizeAll()">
+                  OBLITERE minha criação, fazendo-a renascer.
+                </button>
+              </div>
         </div>
 
         <div class="creature-container">
@@ -116,4 +179,19 @@
             </div>
         </div>
     </div>
+
+    <div class="row" id="footer">
+      <div class="col-md-6">
+        <h4>Como contribuir</h4>
+        <p>Você acredita em sua criatividade e deseja adicionar novas formas para o projeto?</p>
+        <p><b>Envie uma imagem em PNG, de até 800x800, para o e-mail:</b></p>
+        <p>[E-mail do projeto aqui]</p>
+        <p>Sua imagem será recebida e consequentemente analisada pelo conselho de analistas de criaturas abstratas.</p>
+        <p>Caso o nosso conselho aprove, ela será adicionada ao projeto!</p>
+      </div>
+      <div class="col-md-6">
+        <h4></h4>
+      </div>
+    </div>
+
 </body>

@@ -1,11 +1,75 @@
+/* NEW FONT - PLAY WITH FIRE */
+@font-face {
+    font-family: 'Play With Fire';
+    src: url('../data/fonts/playwithfire/play_with_fire-webfont.eot');
+    src: url('../data/fonts/playwithfire/play_with_fire-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../data/fonts/playwithfire/play_with_fire-webfont.woff2') format('woff2'),
+         url('../data/fonts/playwithfire/play_with_fire-webfont.woff') format('woff'),
+         url('../data/fonts/playwithfire/play_with_fire-webfont.ttf') format('truetype'),
+         url('../data/fonts/playwithfire/play_with_fire-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* NEW FONT - WATER SPLASH */
+@font-face {
+    font-family: 'Water Splash';
+    src: url('../data/fonts/watersplash/watersplash-webfont.eot');
+    src: url('../data/fonts/watersplash/watersplash-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../data/fonts/watersplash/watersplash-webfont.woff2') format('woff2'),
+         url('../data/fonts/watersplash/watersplash-webfont.woff') format('woff'),
+         url('../data/fonts/watersplash/watersplash-webfont.ttf') format('truetype'),
+         url('../data/fonts/watersplash/watersplash-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
+#header {
+    background: #ccc;
+}
+
+#header h4 {
+    font-family: 'Water Splash', Arial, Helvetica, sans-serif;
+    text-align: center;
+    font-size: 72px;
+  }
+
+body {
+    overflow-x: hidden;
+    /*width: 150%; /*Isso é horrível pelo amor de Deus arrumar um jeito de fazer sem isso aqui depois*/
+}
+
+#site-body {
+    height: 1024px; /*Isso é horrível pelo amor de Deus arrumar um jeito de fazer sem isso aqui depois*/
+}
+
 .form-container {
-    width: 40%;
-    padding: 15px 35px;
+    width: 40%; /*Isso é horrível pelo amor de Deus arrumar um jeito de fazer sem isso aqui depois*/
+    padding: 50px;
+    font-weight: 600;
+    font-size: 18px;
+    color: white;
+    text-shadow: 1px 2px #000000;
+    background-size: cover;
+    background-image: url(../data/formBG/wood.jpg);
+    border-right: 1px solid #ccc;
+    border-image-source: url(../data/formBG/bark.jpg);
+    border-image-slice: 10%;
+    border-image-width: 40px;
+    border-image-repeat: stretch;
+}
+
+select {
+    margin-bottom: 15px;
 }
 
 .creature-container {
-    width: 60%;
-    padding-top: 2%;
+    width: 60%; /*Isso é horrível pelo amor de Deus arrumar um jeito de fazer sem isso aqui depois*/
+    padding-top: 5%;
+    padding-left: 3%;
+    background-size: cover;
+    background-image: url(../data/creatureBG/forest.jpg);
+    z-index: -5;
 }
 
 #result-body {
@@ -20,6 +84,14 @@
     height: 300px;
     position: relative;
     /*border: 1px solid black;*/
+}
+
+#result-arms {
+    height: 0px;
+}
+
+#result-legs {
+    height: 0px;
 }
 
 .result-eye  {
@@ -44,8 +116,8 @@
 }
 
 .result-hand  {
-    width: 250px;
-    height: 250px;
+    width: 400px;
+    height: 400px;
     position: relative;
     /*border: 1px solid black;*/
 }
@@ -58,8 +130,58 @@
 }
 
 .result-foot  {
-    width: 225px;
-    height: 175px;
+    width: 400px;
+    height: 400px;
     position: relative;
     /*border: 1px solid black;*/
+}
+
+#footer {
+    background: #ccc;
+}
+
+/* CUSTOM SCROLLBAR */
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+background: #000000; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+background: #3b3b3b; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+background: #555; 
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+
 }

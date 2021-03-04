@@ -1,589 +1,391 @@
-var HeadType;
-var ArmType;
-var LegType;
 
-var qntEyes;
-var qntEars;
-var qntLegs;
-var qntArms;
+const BODY = new body();
+const ARMS = new arms();
+const HANDS = new hands();
+const LEGS = new legs();
+const FOOT = new foot();
+const HEAD = new head()
+const EYES = new eyes();
+const EARS = new ears();
 
-var ArmHeight = 400;
-var LegHeight = 375;
+const RESULT_BODY = 'result-body';
 
-/* ---------- Funções de Mudança de Membros ----------*/
-/* ---------------------------------------------------*/
+const RESULT_HEAD = 'result-head';
 
-function changeBody(newBody) {
-    switch(newBody) {
-        case 'Unipede.':
-            bodyImg = 'data/body/Uni.png';
-            qntLegs = 1;
-            qntArms = 2;
-            break;
-        case 'Bipede.':
-            bodyImg = 'data/body/Duo.png';     
-            qntLegs = 2;
-            qntArms = 2;
-            break;
-        case 'Caramujo.':
-            bodyImg = 'data/body/Snail.png';
-            qntLegs = 4;
-            qntArms = 2;
-            break;
-        case 'Sextuple.':
-            bodyImg = 'data/body/Sixti.png';
-            qntLegs = 6;
-            qntArms = 4;
-            break;
-      }
-    
-    headPos = getHeadSpacing(newBody);
+const RESULT_ARMS = 'result-arms';
 
-    $('#result-body').css("background-image", "url("+bodyImg+")");  
-    $('#result-head').css("top", headPos['top']+"px");  
-    $('#result-head').css("left", headPos['left']+"px");  
-    addArms(newBody, qntArms);
-    addLegs(newBody, qntLegs);
+const RESULT_ARM_SINGLE_CLASS = 'result-arm';
+
+const RESULT_ARM_CLASS = 'result-arm arm-n';
+
+const RESULT_HANDS = 'result-hands';
+
+const RESULT_HAND_SINGLE_CLASS = 'result-hand';
+
+const RESULT_HANDS_CLASS = 'result-hands arm-n';
+
+const RESULT_SINGLE_HAND_CLASS = 'result-hand hand-n';
+
+const ARMS_OPTION = 'select-arms';
+
+const HANDS_OPTION = 'select-hands';
+
+const RESULT_LEGS = 'result-legs';
+
+const RESULT_LEG_CLASS = 'result-leg leg-n';
+
+const RESULT_LEG_SINGLE_CLASS = 'result-leg';
+
+const RESULT_FOOT_SINGLE_CLASS = 'result-foot';
+
+const RESULT_FOOT_CLASS = 'result-foot foot-n';
+
+const LEGS_OPTION = 'select-legs';
+
+const FOOT_OPTION = 'select-feet';
+
+const HEAD_OPTION = 'select-head';
+
+const EYES_OPTION = 'select-eye';
+
+const EARS_OPTION = 'select-ear';
+
+const RESULT_EAR = 'result-ear';
+
+const RESULT_EYES = 'result-eye';
+
+const RESULT_EYES_CLASS = 'result-eye eye-n';
+
+const RESULT_EARS_CLASS = 'result-ear ear-n';
+
+const changeBody = (newBody) => 
+{
+    BODY.setId(parseInt(newBody, 10));
+    if (BODY.id == 0)
+    {
+        document.getElementById(RESULT_BODY).style.backgroundImage = '';
+    }
+    else
+    {
+        document.getElementById(RESULT_BODY).style.backgroundImage = `url(${BODY.getImg()})`;    
+    }
+    changeHead(document.getElementById(HEAD_OPTION).value)
+    addArms();
+    addLegs();
 }
 
-function changeHead(newHead) {
-    switch(newHead) {
-        case 'Oval.':
-            headImg = 'data/head/Oval.png';
-            qntEyes = 1;
-            qntEars = 2;
-            break;
-        case 'Quadrado.':
-            headImg = 'data/head/Square.png';
-            qntEyes = 1;
-            qntEars = 2;
-            break;
-        case 'Triângulo.':
-            headImg = 'data/head/Triangle.png';
-            qntEyes = 1;
-            qntEars = 2;
-            break;
-      }
-    
-    $('#result-head').css("background-image", "url("+headImg+")");  
-
-    $('#result-head').html("");   
-    for(i = 1; i<=qntEyes; i++) {
-        $('#result-head').append(
-            "<div class='result-eye eye-n" + i + "'>" +
-
-            "</div>"
-        );
+const changeHead = (newHead) =>
+{
+    HEAD.setId(parseInt(newHead, 10));
+    document.getElementById(RESULT_HEAD).innerHTML = '';
+    if (HEAD.id == 0 || BODY.id == 0)
+    {
+        document.getElementById(RESULT_HEAD).style.backgroundImage = '';
     }
-
-    for(i = 1; i<=qntEars; i++) {
-        $('#result-head').append(
-            "<div class='result-ear ear-n" + i + "'>" +
-
-            "</div>"
-        );
-    }
-    
-    HeadType = newHead;
-    addEyes(HeadType, qntEyes);
-    addEars(HeadType, qntEars);
-}
-
-function changeEyes(newEyes) {
-    if(newEyes) {
-        switch(newEyes) {
-            case 'Normal.':
-                EyeImg = 'data/eye/Normal.png';
-                break;
-            case 'Zoiao.':
-                EyeImg = 'data/eye/Triangle.png';
-                break;
-            case 'Alien.':
-                EyeImg = 'data/eye/Alien.png';
-                break;
-        }
+    else
+    {
+        let headPos = BODY.getHeadSpacing();
+        document.getElementById(RESULT_HEAD).style.top = `${headPos['top']}px`;
+        document.getElementById(RESULT_HEAD).style.left = `${headPos['left']}px`;
+        document.getElementById(RESULT_HEAD).style.zIndex = headPos['index'];
         
-        $('.result-eye').css("background-image", "url("+EyeImg+")");  
-    }
-}
-
-function changeEars(newEars) {
-    if(newEars) {
-        switch(newEars) {
-            case 'Pontudas.':
-                EarImg = 'data/ear/PointyEar.png';
-                break;
-            case 'Chifrinho.':
-                EarImg = 'data/ear/Horn.png';
-                break;
-            case 'Tufo.':
-                EarImg = 'data/ear/HairTuf.png';
-                break;
-        }
+        if(headPos['rotate']) document.getElementById(RESULT_HEAD).style.transform = `rotate(${headPos['rotate']}deg)`;
+        else document.getElementById(RESULT_HEAD).style.transform = `none`;
         
-        $('.result-ear').css("background-image", "url("+EarImg+")");  
+        document.getElementById(RESULT_HEAD).style.backgroundImage = `url(${HEAD.getImg()})`; 
     }
+    addEyes();
+    addEars();
 }
 
-function changeLegs(newLegs) {
-    if(newLegs) {
-        switch(newLegs) {
-            case 'Curvado Esquerda.':
-                LegImg = 'data/leg/CurvedLeft.png';
-                break;
-            case 'Reto.':
-                LegImg = 'data/leg/Straight.png';
-                break;
-            case 'Curvado Direita.':
-                LegImg = 'data/leg/CurvedRight.png';
-                break;
+const addEyes = () =>
+{
+    let countEyes = HEAD.getCountEyes();
+    for (let i = 1; i <= countEyes; i++)
+    {
+        let eyeN = document.createElement('div');
+        eyeN.className = RESULT_EYES_CLASS + i;
+        let eyePos = HEAD.getEyesSpacing(i);
+        eyeN.style.left = eyePos['left'];
+        eyeN.style.top = eyePos['top'];
+        eyeN.style.zIndex = eyePos['index'];
+        document.getElementById(RESULT_HEAD).appendChild(eyeN);
+    }
+    changeEyes(document.getElementById(EYES_OPTION).value);
+}
+
+const changeEyes = (newEyes) => 
+{
+    EYES.setId(parseInt(newEyes, 10));
+    let eyesArr = document.getElementsByClassName(RESULT_EYES);
+    for (let i = 0; i < eyesArr.length; i++)
+    {
+        if (EYES.id == 0 || HEAD.id == 0 || BODY.id == 0)
+        {
+            eyesArr[i].style.backgroundImage = '';
         }
-        
-        LegType = newLegs;
-
-        $('.result-leg').css("background-image", "url("+LegImg+")");  
-        addFeet(LegType, qntLegs);
-    }
-}
-
-function changeFeet(newFeet) {
-    if(newFeet) {
-        switch(newFeet) {
-            case 'Cuei.':
-                FeetImg = 'data/foot/Rabbit.png';
-                break;
-            case 'Cobra.':
-                FeetImg = 'data/foot/Snake.png';
-                break;
-            case 'Dedo.':
-                FeetImg = 'data/foot/Toe.png';
-                break;
+        else
+        {
+            let eyePos = HEAD.getEyesSpacing(i+1);
+            eyesArr[i].style.left = eyePos['left'];
+            eyesArr[i].style.top = eyePos['top'];
+            eyesArr[i].style.zIndex = eyePos['index'];
+            eyesArr[i].style.backgroundImage = `url(${EYES.getImg()})`;
         }
-        
-        $('.result-foot').css("background-image", "url("+FeetImg+")");  
     }
 }
 
-function changeArms(newArms) {
-    if(newArms) {
-        switch(newArms) {
-            case 'Forte.':
-                ArmImg = 'data/arm/Muscle.png';
-                break;
-            case 'Macarrão.':
-                ArmImg = 'data/arm/Noodle.png';
-                break;
-            case 'Palito.':
-                ArmImg = 'data/arm/Stick.png';
-                break;
+const addEars = () =>
+{
+    let countEars = HEAD.getCountEars();
+    for (let i = 1; i <= countEars; i++)
+    {
+        let earN = document.createElement('div');
+        earN.className = RESULT_EARS_CLASS + i;
+        let earPos = HEAD.getEarSpacing(i);
+        earN.style.left = earPos['left'];
+        earN.style.top = earPos['top'];
+        earN.style.zIndex = earPos['index'];
+        if (earPos['flip'])
+        {
+            earN.style.transform = 'scaleX(-1)';
         }
-
-        ArmType = newArms;
-        
-        $('.result-arm').css("background-image", "url("+ArmImg+")");  
-        addHands(ArmType, qntArms);
+        document.getElementById(RESULT_HEAD).appendChild(earN);
     }
+    changeEars(document.getElementById(EARS_OPTION).value);
 }
 
-function changeHands(newHands) {
-    if(newHands) {
-        switch(newHands) {
-            case 'Garra.':
-                HandImg = 'data/hand/Claw.png';
-                break;
-            case 'Mole.':
-                HandImg = 'data/hand/Tentacle.png';
-                break;
-            case 'Joia.':
-                HandImg = 'data/hand/ThumbsUp.png';
-                break;
+const changeEars = (newEars) => 
+{
+    EARS.setId(parseInt(newEars, 10));
+    let earsArr = document.getElementsByClassName(RESULT_EAR);
+    for (let i = 0; i < earsArr.length; i++)
+    {
+        if (EARS.id == 0 || HEAD.id == 0 || BODY.id == 0)
+        {
+            earsArr[i].style.backgroundImage = '';
         }
+        else
+        {
+            let earPos = HEAD.getEarSpacing(i+1);
+            earsArr[i].style.left = earPos['left'];
+            earsArr[i].style.top = earPos['top'];
+            earsArr[i].style.zIndex = earPos['index'];
+            if (earPos['flip'])
+            {
+                earsArr[i].style.transform = 'scaleX(-1)';
+            }
+            earsArr[i].style.backgroundImage = `url(${EARS.getImg()})`;
+        }
+    }
+}
+
+const addArms = () =>
+{
+    document.getElementById(RESULT_ARMS).innerHTML = '';
+    let countArms = BODY.getCountArms();
+    for (let i = 1; i <= countArms; i++)
+    {
+        let armN = document.createElement('div');
+        armN.className = RESULT_ARM_CLASS + i;
+        let armPos = BODY.getArmSpacing(i);
+        armN.style.left = armPos['left'];
+        armN.style.top = armPos['top'];
+        armN.style.zIndex = armPos['index'];
         
-        $('.result-hand').css("background-image", "url("+HandImg+")");  
+        let transformString = "";
+        if (armPos['rotate'])
+        {
+            transformString += 'rotate('+armPos['rotate']+'deg) ';
+        }
+        if (armPos['flip'])
+        {
+            transformString += 'scaleX(-1) ';
+        }
+        armN.style.transform = transformString;
+
+        let handN = document.createElement('div');
+        handN.className = RESULT_HANDS_CLASS + i;
+        let hand = document.createElement('div');
+        hand.className = RESULT_SINGLE_HAND_CLASS + i;
+        let handSpacing = ARMS.getHandSpacing();
+        hand.style.left = handSpacing['left'];
+        hand.style.top = handSpacing['top'];
+        hand.style.zIndex = handSpacing['index'];
+        handN.appendChild(hand);
+        armN.appendChild(handN);
+        document.getElementById(RESULT_ARMS).appendChild(armN);
     }
+    changeArms(document.getElementById(ARMS_OPTION).value);
 }
 
-/* ---------- Funções de Adição de Novos Membros ----------*/
-/* --------------------------------------------------------*/
-
-function addEyes(HeadType, qnt) {
-
-    for(i = 1; i<=qnt; i++) {
-        pos = getHandSpacing(HeadType, i); //CHANGE THIS
-        $('.result-eye.eye-n'+i).css("left", 0);
-        $('.result-eye.eye-n'+i).css("top", 0);
-        $('.result-eye.eye-n'+i).css("z-index", 5);
-    }
-
-    changeEyes($( "#select-eye" ).val())
-}
-
-function addEars(HeadType, qnt) {
-
-    for(i = 1; i<=qnt; i++) {
-        pos = getEarSpacing(HeadType, i);
-        $('.result-ear.ear-n'+i).css("left", pos['left']);
-        $('.result-ear.ear-n'+i).css("top", pos['top']);
-        $('.result-ear.ear-n'+i).css("z-index", pos['index']);
-        if(pos['flip']) $('.result-ear.ear-n'+i).css("transform", 'scaleX(-1)');
-    }
-
-    changeEars($( "#select-ear" ).val())
-}
-
-function addLegs(newBody, qnt) {
-    $('#result-legs').html("");
-    $('.result-foot').html("");
-    for(i = 1; i<=qnt; i++) {
-        $('#result-legs').append(
-            "<div class='result-leg leg-n" + i + "'>" +
-                "<div class='result-foot foot-n" + i + "'>" +
-
-                "</div>" +
-            "</div>"
-        );
-    }
-
-    for(i = 1; i<=qnt; i++) {
-        pos = getLegSpacing(newBody, i);
-        $('.result-leg.leg-n'+i).css("left", pos['left']);
-        $('.result-leg.leg-n'+i).css("top", pos['top']);
-        $('.result-leg.leg-n'+i).css("z-index", pos['index']);
-    }
-
-    changeLegs($( "#select-legs" ).val())
-}
-
-function addFeet(LegType, qnt) {
-    $('.result-foot').html("");
-
-    for(i = 1; i<=qnt; i++) {
-        pos = getFootSpacing(LegType, i);
-        $('.result-foot.foot-n'+i).css("left", pos['left']);
-        $('.result-foot.foot-n'+i).css("top", pos['top']);
-        $('.result-foot.foot-n'+i).css("z-index", pos['index']);
-    }
-
-    changeFeet($( "#select-feet" ).val())
-}
-
-function addArms(newBody, qnt) {
-    $('#result-arms').html("");    
-    $('.result-hands').html("");
-    for(i = 1; i<=qnt; i++) {
-        $('#result-arms').append(
-            "<div class='result-arm arm-n" + i + "'>" +
-                "<div class='result-hands arm-n" + i + "'>" +
-
-                "</div>" +
-            "</div>"
-        );
-    }
-
-    for(i = 1; i<=qnt; i++) {
-        pos = getArmSpacing(newBody, i);
-        $('.result-arm.arm-n'+i).css("left", pos['left']);
-        $('.result-arm.arm-n'+i).css("top", pos['top']);
-        $('.result-arm.arm-n'+i).css("z-index", pos['index']);
-        if(pos['flip']) $('.result-arm.arm-n'+i).css("transform", 'scaleX(-1)');
-    }
-
-    changeArms($( "#select-arms" ).val());
-}
-
-function addHands(ArmType, qnt) {
-    $('.result-hands').html("");
-    for(i = 1; i<=qnt; i++) {
-        $('.result-hands.arm-n'+i).append("<div class='result-hand hand-n" + i + "'></div>");
-    }
-
-    for(i = 1; i<=qnt; i++) {
-        pos = getHandSpacing(ArmType, i);
-        $('.result-hand.hand-n'+i).css("left", pos['left']);
-        $('.result-hand.hand-n'+i).css("top", pos['top']);
-        $('.result-hand.hand-n'+i).css("z-index", pos['index']);
-    }
-
-    changeHands($( "#select-hands" ).val())
-}
-
-/* ---------- Funções de Espaçamento ----------*/
-/* --------------------------------------------*/
-
-function getHeadSpacing(bodyType) {
-    var pos = new Array();
-    switch(bodyType) {
-        case 'Unipede.':
-            pos['top'] = -12;   
-            pos['left'] = 250; 
-            return pos;
-            break;
-        case 'Bipede.':
-            pos['top'] = -13;   
-            pos['left'] = 248; 
-            return pos;
-            break;
-        case 'Caramujo.':
-            pos['top'] = -19;   
-            pos['left'] = 425; 
-            return pos;
-            break;
-        case 'Sextuple.':
-            pos['top'] = -2;   
-            pos['left'] = 245; 
-            return pos;
-            break;
-    }
-}
-
-function getEarSpacing(headType, ear) {
-    var pos = new Array();
-    
-    pos['index'] = 6;
-    switch(headType) {
-        case 'Oval.':
-            pos['top'] = -200 - ((ear-1)*200);             
-            if(ear == 1)  pos['left'] = -90;    
-            else {
-                pos['index'] = -1;
-                pos['left'] = 105;    
-                pos['flip'] = true;
+const changeArms = (newArms) => 
+{
+    ARMS.setId(parseInt(newArms, 10));
+    let armsArr = document.getElementsByClassName(RESULT_ARM_SINGLE_CLASS);
+    for (let i = 0; i < armsArr.length; i++)
+    {
+        if (ARMS.id == 0 || BODY.id == 0)
+        {
+            armsArr[i].style.backgroundImage = '';
+        }
+        else
+        {
+            let armPos = BODY.getArmSpacing(i+1);
+            armsArr[i].style.left = armPos['left'];
+            armsArr[i].style.top = armPos['top'];
+            armsArr[i].style.zIndex = armPos['index'];
+            
+            let transformString = "";
+            if (armPos['rotate'])
+            {
+                transformString += 'rotate('+armPos['rotate']+'deg) ';
             }
-            return pos;
-            break;
-        case 'Quadrado.':
-            pos['top'] = -180 - ((ear-1)*200); 
-            if(ear == 1)  pos['left'] = -100;    
-            else {
-                pos['index'] = -1;
-                pos['left'] = 150;    
-                pos['flip'] = true;
+            if (armPos['flip'])
+            {
+                transformString += 'scaleX(-1) ';
             }
-            return pos;
-            break;
-        case 'Triângulo.':
-            pos['top'] = -175 - ((ear-1)*200); 
-            if(ear == 1)  pos['left'] = -80;    
-            else {
-                pos['index'] = -1;
-                pos['left'] = 130;    
-                pos['flip'] = true;
-            }
-            return pos;
-            break;
-      }
-      
+            armsArr[i].style.transform = transformString;
+
+            armsArr[i].style.backgroundImage = `url(${ARMS.getImg()})`;
+        }
+    }
+    changeHands(document.getElementById(HANDS_OPTION).value);
 }
 
-function getLegSpacing(bodyType, leg) {
-    var pos = new Array();
-    switch(bodyType) {
-        case 'Unipede.':
-            pos['index'] = 1;    
-            pos['top'] = -564;                
-            pos['left'] = 275;
-            return pos;
-            break;
-        case 'Bipede.':   
-                pos['index'] = 1;
-                if(leg == 1) {
-                    pos['top'] = -600; 
-                    pos['left'] = 170;    
-                } else if (leg == 2) {
-                    pos['index'] = 0;
-                    pos['top'] = -973; 
-                    pos['left'] = 320;
-                }
-                return pos;
-                break;
-        case 'Caramujo.':
-            pos['top'] = -595-((leg-1)*LegHeight);  
-            if(leg == 1) {  
-                pos['left'] = 400;    
-                pos['index'] = -1;
-            } else if (leg == 2) {
-                pos['left'] = 310;
-                pos['index'] = 1;
-            } else if (leg == 3) {
-                pos['left'] = 180;
-                pos['index'] = -1;
-            } else if (leg == 4) {
-                pos['left'] = 90;
-                pos['index'] = 1;
+const changeHands = (newHands) => 
+{
+    HANDS.setId(parseInt(newHands, 10));
+    let handsArr = document.getElementsByClassName(RESULT_HAND_SINGLE_CLASS);
+    for (let i = 0; i < handsArr.length; i++)
+    {
+        if (HANDS.id == 0 || ARMS.id == 0 || BODY.id == 0)
+        {
+            handsArr[i].style.backgroundImage = '';
+        }
+        else
+        {
+            let handSpacing = ARMS.getHandSpacing();
+            handsArr[i].style.left = handSpacing['left'];
+            handsArr[i].style.top = handSpacing['top'];
+            handsArr[i].style.zIndex = handSpacing['index'];
+            let transformString = "";
+            if (handSpacing['rotate'])
+            {
+                transformString += 'rotate('+handSpacing['rotate']+'deg) ';
             }
-            return pos;
-            break;
-            case 'Sextuple.':
-                pos['top'] = -1360-((leg-1)*LegHeight);    
-                if(leg == 1) {
-                    pos['left'] = 435;
-                    pos['index'] = -1;
-                } else if (leg == 2) {
-                    pos['left'] = 380;
-                    pos['index'] = 1;
-                } else if (leg == 3) {
-                    pos['left'] = 275;
-                    pos['index'] = -1;
-                } else if (leg == 4) {
-                    pos['left'] = 190;
-                    pos['index'] = 1;
-                }  else if (leg == 5) {
-                    pos['left'] = 95;
-                    pos['index'] = -1;
-                }  else if (leg == 6) {
-                    pos['left'] = 40;
-                    pos['index'] = 1;
-                }
-                return pos;
-            break;
-      }
-      
-}
-
-function getFootSpacing(LegType, foot) {
-    var pos = new Array();
-    pos['index'] = 5;
-    switch(LegType) {
-        case 'Curvado Esquerda.':
-            pos['top'] = 198; 
-            pos['left'] = 75;    
-            return pos;
-            break;
-        case 'Reto.':
-            pos['top'] = 192; 
-            pos['left'] = 143;    
-            return pos;
-            break;
-        case 'Curvado Direita.':
-            pos['top'] = 190; 
-            pos['left'] = 80;    
-            return pos;
-            break;
-      }
-      
-}
-
-function getArmSpacing(bodyType, arm) {
-    var pos = new Array();
-    switch(bodyType) {
-        case 'Unipede.':
-            if(arm == 1) {
-                pos['top'] = -110; 
-                pos['left'] = 280;    
-                pos['index'] = 2;
-            } else if (arm == 2) {
-                pos['top'] = -522; 
-                pos['left'] = 450;
-                pos['index'] = 1;
+            if (handSpacing['flip'])
+            {
+                transformString += 'scaleX(-1) ';
             }
-            return pos;
-            break;
-        case 'Bipede.':
-                if(arm == 1) {
-                    pos['index'] = 2;
-                    pos['top'] = -110;
-                    pos['left'] = 260; 
-                } else if (arm == 2) {
-                    pos['index'] = 1;
-                    pos['top'] = -543;
-                    pos['left'] = 450;
-                }
-                return pos;
-                break;
-        case 'Caramujo.':
-            if(arm == 1) {
-                pos['top'] = -130;    
-                pos['left'] = 465;    
-                pos['index'] = 1;
-            } else if (arm == 2) {
-                pos['top'] = -530;    
-                pos['left'] = 595;
-                pos['index'] = 0;
+            handsArr[i].style.transform = transformString;
+            handsArr[i].style.backgroundImage = `url(${HANDS.getImg()})`;
+        }
+    }
+}
+
+const addLegs = () =>
+{
+    document.getElementById(RESULT_LEGS).innerHTML = '';
+    let countLegs = BODY.getCountLegs();
+    for (let i = 1; i <= countLegs; i++)
+    {
+        let legN = document.createElement('div');
+        legN.className = RESULT_LEG_CLASS + i;
+        let legPos = BODY.getLegSpacing(i);
+        legN.style.left = legPos['left'];
+        legN.style.top = legPos['top'];
+        legN.style.zIndex = legPos['index'];
+        
+        let transformString = "";
+        if (legPos['rotate'])
+        {
+            transformString += 'rotate('+legPos['rotate']+'deg) ';
+        }
+        if (legPos['flip'])
+        {
+            transformString += 'scaleX(-1) ';
+        }
+        legN.style.transform = transformString;
+
+        let footN = document.createElement('div');
+        footN.className = RESULT_FOOT_CLASS + i;
+        let footSpacing = LEGS.getFootSpacing();
+        footN.style.left = footSpacing['left'];
+        footN.style.top = footSpacing['top'];
+        footN.style.zIndex = footSpacing['index'];
+        legN.appendChild(footN);
+        document.getElementById(RESULT_LEGS).appendChild(legN);
+    }
+    changeLegs(document.getElementById(LEGS_OPTION).value);
+}
+
+const changeLegs = (newLegs) =>
+{
+    LEGS.setId(parseInt(newLegs, 10));
+    let legsArr = document.getElementsByClassName(RESULT_LEG_SINGLE_CLASS);
+    for (let i = 0; i < legsArr.length; i++)
+    {
+        if (LEGS.id == 0 || BODY.id == 0)
+        {
+            legsArr[i].style.backgroundImage = '';
+        }
+        else
+        {
+            let legPos = BODY.getLegSpacing(i+1);
+            legsArr[i].style.left = legPos['left'];
+            legsArr[i].style.top = legPos['top'];
+            legsArr[i].style.zIndex = legPos['index'];
+            
+            let transformString = "";
+            if (legPos['rotate'])
+            {
+                transformString += 'rotate('+legPos['rotate']+'deg) ';
             }
-            return pos;
-            break;
-            case 'Sextuple.':
-                if(arm == 1) {
-                    pos['top'] = -143;
-                    pos['left'] = 457;
-                    pos['index'] = 4;
-                } else if (arm == 2) {
-                    pos['top'] = -530;
-                    pos['left'] = -15;
-                    pos['index'] = 4;
-                    pos['flip'] = true;
-                } else if (arm == 3) {
-                    pos['top'] = -775;
-                    pos['left'] = 480;
-                    pos['index'] = 3;
-                } else if (arm == 4) {
-                    pos['top'] = -1180;
-                    pos['left'] = 5;
-                    pos['index'] = 3;
-                    pos['flip'] = true;
-                }
-                return pos;
-            break;
-      }
-      
+            if (legPos['flip'])
+            {
+                transformString += 'scaleX(-1) ';
+            }
+            legsArr[i].style.transform = transformString;
+
+            legsArr[i].style.backgroundImage = `url(${LEGS.getImg()})`;
+        }
+    }
+    changeFeet(document.getElementById(FOOT_OPTION).value);
 }
 
-function getHandSpacing(ArmType, hand) {
-    var pos = new Array();
-    pos['index'] = 5;
-    switch(ArmType) {
-        case 'Forte.':
-            pos['top'] = -11; 
-            pos['left'] = 240;    
-            return pos;
-            break;
-        case 'Macarrão.':
-            pos['top'] = -10; 
-            pos['left'] = 143;    
-            return pos;
-            break;
-        case 'Palito.':
-            pos['top'] = 0; 
-            pos['left'] = 222;    
-            return pos;
-            break;
-      }
-      
+const changeFeet = (newFeet) => 
+{
+    FOOT.setId(parseInt(newFeet, 10));
+    let footArr = document.getElementsByClassName(RESULT_FOOT_SINGLE_CLASS);
+    for (let i = 0; i < footArr.length; i++)
+    {
+        if (FOOT.id == 0 || LEGS.id == 0 || BODY.id == 0)
+        {
+            footArr[i].style.backgroundImage = '';
+        }
+        else
+        {
+            let footSpacing = LEGS.getFootSpacing();
+            footArr[i].style.left = footSpacing['left'];
+            footArr[i].style.top = footSpacing['top'];
+            footArr[i].style.zIndex = footSpacing['index'];
+            footArr[i].style.backgroundImage = `url(${FOOT.getImg()})`;
+        }
+    }
 }
 
-/* ------- Funções dos Campos de Texto --------*/
-/* --------------------------------------------*/
+//Obrigado Rodrigo Rodrigues
+function getRandomArbitrary(min, max) {
+    return Math.random() * (max - min) + min;
+}
 
-$( document ).ready(function() {
-    $( "#select-body" ).change(function() {
-        changeBody($(this).val());
-    });
-
-    $( "#select-head" ).change(function() {
-        changeHead($(this).val());
-    });
-
-    $( "#select-eye" ).change(function() {
-        changeEyes($(this).val());
-    });
-
-    $( "#select-ear" ).change(function() {
-        changeEars($(this).val());
-    });
-
-    $( "#select-arms" ).change(function() {
-        changeArms($(this).val());
-    });
-
-    $( "#select-hands" ).change(function() {
-        changeHands($(this).val());
-    });
-
-    $( "#select-legs" ).change(function() {
-        changeLegs($(this).val());
-    });
-
-    $( "#select-feet" ).change(function() {
-        changeFeet($(this).val());
-    });
-});
+const randomizeAll = () =>
+{
+    document.querySelectorAll('select').forEach(select => {
+        const maxRandomNumber = select.options.length
+        const randomNumber = getRandomArbitrary(1, maxRandomNumber)
+        select.selectedIndex = randomNumber
+        select.onchange() //MUDAR ISSO
+    })
+}
