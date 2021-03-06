@@ -13,6 +13,10 @@ class nose extends shape
             {
                 'name': 'heart' 
             },
+            2: 
+            {
+                'name': 'trunk' 
+            },
         };
         super(id, path, options);
     }

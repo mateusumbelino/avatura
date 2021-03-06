@@ -45,6 +45,18 @@ class ears extends shape
             {
                 'name': 'PixelRobot' 
             },
+            10: 
+            {
+                'name': 'Hairy' 
+            },
+            11: 
+            {
+                'name': 'Blue' 
+            },
+            12: 
+            {
+                'name': 'Elf' 
+            },
         };
         super(id, path, options);
     }

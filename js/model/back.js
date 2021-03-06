@@ -13,6 +13,10 @@ class back extends shape
             {
                 'name': 'tail' 
             },
+            2: 
+            {
+                'name': 'tentacle' 
+            },
         };
         super(id, path, options);
     }

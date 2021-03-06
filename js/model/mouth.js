@@ -13,6 +13,18 @@ class mouth extends shape
             {
                 'name': 'anime' 
             },
+            2: 
+            {
+                'name': 'blackHole' 
+            },
+            3: 
+            {
+                'name': 'snake' 
+            },
+            4: 
+            {
+                'name': 'teeth' 
+            },
         };
         super(id, path, options);
     }

@@ -45,6 +45,14 @@ class arms extends shape
             9: 
             {
                 'name': 'PixelRobot' 
+            },
+            10: 
+            {
+                'name': 'Hairy' 
+            },
+            11: 
+            {
+                'name': 'Toothbrush' 
             }
         };
         super(id, path, options);
@@ -92,6 +100,16 @@ class arms extends shape
                 spacing['left'] = 70; 
                 break;
             case 9: //Pixel Robot
+                spacing['top'] = 205;   
+                spacing['left'] = -90; 
+                spacing['rotate'] = 90;
+                break;
+            case 10: //Hairy
+                spacing['top'] = 205;   
+                spacing['left'] = -90; 
+                spacing['rotate'] = 90;
+                break;
+            case 11: //Toothbrush
                 spacing['top'] = 205;   
                 spacing['left'] = -90; 
                 spacing['rotate'] = 90;

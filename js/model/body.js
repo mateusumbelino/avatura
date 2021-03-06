@@ -78,6 +78,12 @@ class body extends shape
                 'countArms': 2,
                 'name': 'King'
             },
+            12: 
+            {
+                'countLegs': 4,
+                'countArms': 2,
+                'name': 'Phone'
+            },
         };
         super(id, path, options);
         
@@ -129,9 +135,9 @@ class body extends shape
                 spacing['left'] = 245; 
                 break;
             case 7:
-                    spacing['top'] = -25;   
-                    spacing['left'] = 255; 
-                    break;
+                spacing['top'] = -25;   
+                spacing['left'] = 255; 
+                break;
             case 7:
                 spacing['top'] = -25;   
                 spacing['left'] = 255; 
@@ -150,6 +156,10 @@ class body extends shape
                 spacing['left'] = 255; 
                 break;
             case 11: //King
+                spacing['top'] = 40;   
+                spacing['left'] = 255; 
+                break;
+            case 12: //Phone
                 spacing['top'] = 40;   
                 spacing['left'] = 255; 
                 break;
@@ -349,6 +359,21 @@ class body extends shape
                 }
                 break;
             case 11:
+                switch(arm)
+                {
+                    case 1:
+                        spacing['top'] = -110; 
+                        spacing['left'] = 260;  
+                        spacing['index'] = 1;
+                        break;
+                    case 2:
+                        spacing['top'] = -543; 
+                        spacing['left'] = 450;  
+                        spacing['index'] = 0;
+                        break;
+                }
+                break;
+            case 12: //Phone
                 switch(arm)
                 {
                     case 1:
@@ -574,6 +599,28 @@ class body extends shape
                         break;
                 }
                 break;
+            case 12: //Phone
+            spacing['top'] = 150-((leg-1)*legHeight);
+            switch(leg)
+            {
+                case 1:
+                    spacing['left'] = 400;  
+                    spacing['index'] = -1;
+                    break;
+                case 2:
+                    spacing['left'] = 310;  
+                    spacing['index'] = 1;
+                    break;
+                case 3:
+                    spacing['left'] = 180;  
+                    spacing['index'] = -1;
+                    break;
+                case 4:
+                    spacing['left'] = 90;  
+                    spacing['index'] = 1;
+                    break;
+            }
+            break;
         }
         return spacing;
     }

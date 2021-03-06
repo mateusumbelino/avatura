@@ -301,8 +301,8 @@ class head extends shape
         let spacing = [];
         switch (this.id) {
             default:
-                spacing['top'] = -489;   
-                spacing['left'] = 98; 
+                spacing['top'] = -595;   
+                spacing['left'] = 8; 
                 break;
         }
         spacing['index'] = 9;
@@ -314,11 +314,11 @@ class head extends shape
         let spacing = [];
         switch (this.id) {
             default:
-                spacing['top'] = -589;   
+                spacing['top'] = -800;   
                 spacing['left'] = 4; 
                 break;
         }
-        spacing['index'] = 10;
+        spacing['index'] = 5;
         return spacing;
     }
 

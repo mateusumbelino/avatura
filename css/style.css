@@ -24,14 +24,39 @@
     font-style: normal;
 }
 
+/* NEW FONT - We Have Your Chocolate */
+@font-face {
+    font-family: 'We Have Your Chocolate';
+    src: url('../data/fonts/wehaveyourchocolate/kb3wehaveyourchocolate-webfont.eot');
+    src: url('../data/fonts/wehaveyourchocolate/kb3wehaveyourchocolate-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../data/fonts/wehaveyourchocolate/kb3wehaveyourchocolate-webfont.woff2') format('woff2'),
+         url('../data/fonts/wehaveyourchocolate/kb3wehaveyourchocolate-webfont.woff') format('woff'),
+         url('../data/fonts/wehaveyourchocolate/kb3wehaveyourchocolate-webfont.ttf') format('truetype'),
+         url('../data/fonts/wehaveyourchocolate/kb3wehaveyourchocolate-webfont.svg') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
+
 #header {
-    background: #ccc;
+    display: flex;
+    justify-content: center;
+    background-blend-mode: multiply;
+    background: #000000cc;
+    background-image: url(../data/formBG/colagem.jpg);
+    text-align: center;
+    border-bottom: 2px solid white;
 }
 
 #header h4 {
-    font-family: 'Water Splash', Arial, Helvetica, sans-serif;
+    font-family: 'We Have Your Chocolate', Arial, Helvetica, sans-serif;
     text-align: center;
     font-size: 72px;
+    color: white;
+  }
+
+  #header hr {
+      width: 35%;
+      border-top: 3px solid white;
   }
 
 body {
@@ -51,13 +76,10 @@ body {
     padding: 50px;
     font-weight: 600;
     font-size: 18px;
-    color: white;
-    background-color: #000000a1;
-    text-shadow: 1px 2px #000000;
-    border-right: 1px solid #ccc;
-    border-image-slice: 10%;
-    border-image-width: 40px;
-    border-image-repeat: stretch;
+    color: #282828;
+    background-image: url(../data/formBG/tornpaper.png);
+    background-size: cover;
+    padding-right: 5%;
 }
 
 select {
@@ -102,8 +124,8 @@ select {
 }
 
 .result-nose  {
-    width: 100px;
-    height: 100px;
+    width: 300px;
+    height: 300px;
     position: relative;
     /*border: 1px solid black;*/
 }
@@ -157,7 +179,16 @@ select {
 }
 
 #footer {
-    background: #ccc;
+    border-top: 2px solid white;
+    background-blend-mode: multiply;
+    background: #000000cc;
+    background-image: url(../data/formBG/colagem.jpg);
+    color: white;
+    padding: 30px;
+}
+
+#footer .col-md-6:nth-child(1) {
+    border-right: 2px solid white;
 }
 
 /* CUSTOM SCROLLBAR */

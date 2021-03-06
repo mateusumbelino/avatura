@@ -59,7 +59,7 @@ const EARS_OPTION = 'select-ear';
 
 const MOUTH_OPTION = 'select-mouth';
 
-const NOSE_OPTION = 'select-mouth';
+const NOSE_OPTION = 'select-nose';
 
 const RESULT_EAR = 'result-ear';
 
