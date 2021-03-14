@@ -105,14 +105,14 @@ class arms extends shape
                 spacing['rotate'] = 90;
                 break;
             case 10: //Hairy
-                spacing['top'] = 205;   
-                spacing['left'] = -90; 
-                spacing['rotate'] = 90;
+                spacing['top'] = -165;   
+                spacing['left'] = 130; 
+                spacing['rotate'] = 320;
                 break;
             case 11: //Toothbrush
-                spacing['top'] = 205;   
-                spacing['left'] = -90; 
-                spacing['rotate'] = 90;
+                spacing['top'] = -165;   
+                spacing['left'] = 130; 
+                spacing['rotate'] = 320;
                 break;
         }
         return spacing;

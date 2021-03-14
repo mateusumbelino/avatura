@@ -92,6 +92,7 @@ const changeBody = (newBody) =>
     addArms();
     addLegs();
     changeBack(document.getElementById(BACK_OPTION).value);
+    resizeBody();
 }
 
 const changeHead = (newHead) =>
@@ -119,6 +120,7 @@ const changeHead = (newHead) =>
     addEars();
     addNose();
     addMouth();
+    resizeBody();
     
 }
 
@@ -157,6 +159,7 @@ const changeEyes = (newEyes) =>
             eyesArr[i].style.backgroundImage = `url(${EYES.getImg()})`;
         }
     }
+    resizeBody();
 }
 
 const addEars = () =>
@@ -202,6 +205,7 @@ const changeEars = (newEars) =>
             earsArr[i].style.backgroundImage = `url(${EARS.getImg()})`;
         }
     }
+    resizeBody();
 }
 
 const addNose = () =>
@@ -239,6 +243,7 @@ const changeNose = (newNose) =>
             noseArr[i].style.backgroundImage = `url(${NOSE.getImg()})`;
         }
     }
+    resizeBody();
 }
 
 const addMouth = () =>
@@ -276,6 +281,7 @@ const changeMouth = (newMouth) =>
             mouthArr[i].style.backgroundImage = `url(${MOUTH.getImg()})`;
         }
     }
+    resizeBody();
 }
 
 const addArms = () =>
@@ -349,6 +355,7 @@ const changeArms = (newArms) =>
         }
     }
     changeHands(document.getElementById(HANDS_OPTION).value);
+    resizeBody();
 }
 
 const changeHands = (newHands) => 
@@ -380,6 +387,7 @@ const changeHands = (newHands) =>
             handsArr[i].style.backgroundImage = `url(${HANDS.getImg()})`;
         }
     }
+    resizeBody();
 }
 
 const addLegs = () =>
@@ -450,6 +458,7 @@ const changeLegs = (newLegs) =>
         }
     }
     changeFeet(document.getElementById(FOOT_OPTION).value);
+    resizeBody();
 }
 
 const changeFeet = (newFeet) => 
@@ -471,6 +480,7 @@ const changeFeet = (newFeet) =>
             footArr[i].style.backgroundImage = `url(${FOOT.getImg()})`;
         }
     }
+    resizeBody();
 }
 
 const changeBack = (newBack) =>
@@ -489,6 +499,7 @@ const changeBack = (newBack) =>
         back.style.zIndex = backPos['index'];
         back.style.backgroundImage = `url(${BACK.getImg()})`;
     }
+    resizeBody();
 }
 
 //Obrigado Rodrigo Rodrigues
@@ -504,4 +515,34 @@ const randomizeAll = () =>
         select.selectedIndex = randomNumber
         select.onchange() //MUDAR ISSO
     })
+}
+
+function resizeBody() {
+    newWindowWidth = Math.max( document.body.scrollWidth, document.body.offsetWidth);
+    document.getElementById("header").style.width = newWindowWidth;
+    document.getElementById("footer").style.width = newWindowWidth;
+}
+
+function changeSubtitle() {
+    let subtitle = Math.floor(Math.random() * 4); //Numero aleatorio de 0 a 3
+    switch(subtitle) {
+        default:
+            document.getElementById('header-subtitle').innerText = "Como você está hoje?";
+            break;
+        case 1:
+            document.getElementById('header-subtitle').innerText = "Monte seu Avatar";
+            break;
+        case 2:
+            document.getElementById('header-subtitle').innerText = "Revele sua Criatura";
+            break;
+        case 3:
+            document.getElementById('header-subtitle').innerText = "Crie sua Aventura";
+            break;
+    }
+}
+
+function makeScreenshot() {
+    html2canvas(document.getElementById("creature"), {scale: 1}).then(canvas => {
+        document.body.appendChild(canvas);
+    });
 }

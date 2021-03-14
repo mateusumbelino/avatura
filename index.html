@@ -3,6 +3,7 @@
     <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
     <!-- Latest compiled and minified JavaScript -->
     <script src="js/bootstrap/bootstrap.min.js"></script>
+    <script src="js/html2canvas.min.js"></script>
     <!-- Body changing scripts -->
     <script src="js/model/shape.js"></script>
     <script src="js/model/arms.js"></script>
@@ -18,23 +19,29 @@
     <script src="js/model/back.js"></script>
     <link rel="stylesheet" href="css/style.css">
     <script src="js/custom.js"></script>
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
 </head>
 
-<body>
+<body onload="changeSubtitle()" onresize="resizeBody()">
 
   <div class="row" id="header">
-    <h4>Avatura</h4>
+    <h1>Avatura</h1>
     <hr>
+    <h3 id="header-subtitle"></h3>
+    <div id="header-links">
+      <a href="#sobre"> Sobre o Projeto </a>
+      <a href="#contribuir"> Como contribuir </a>
+    </div>
   </div>
 
     <div class="row d-flex" id="site-body">
         <div class="form-container">
             
-          <p>A jornada é longa e árdua.</p>
+          <p>Como você está hoje?.</p>
 
             <form>
                 <div class="form-group">
-                  <label for="select-body">A base</label>
+                  <label for="select-body">O que mantém tudo junto</label>
                   <select class="form-control" id="select-body" onchange='changeBody(this.value);'>
                     <option value=0>Não tinha teto, não tinha nada.</option>
                     <option value=2>Fui esculpido em mármore mas minha forma é ofensiva.</option>
@@ -51,9 +58,9 @@
                     <option value=12>Recebi uma nova notificação.</option>
                   </select>
 
-                  <label for="select-head">a gabessa</label>
+                  <label for="select-head">CPU</label>
                   <select class="form-control" id="select-head" onchange='changeHead(this.value);'>
-                    <option value=0>Não preciso de massa cinzenta</option>
+                    <option value=0>Tô sem cabeça pra isso</option>
                     <option value=1>A luz reflete em meu mármore.</option>
                     <option value=4>Vou lhe pedir que tome conta de mim.</option>
                     <option value=5>Algum dia meu crânio vai rachar.</option>
@@ -66,9 +73,9 @@
                     <option value=3>Respeite a minha realeza pixelizada.</option>
                   </select>
 
-                  <label for="select-ear">a zoreia</label>
+                  <label for="select-ear">Sensor</label>
                   <select class="form-control" id="select-ear" onchange='changeEars(this.value);'>
-                    <option value=0>Sou desprovido de audição</option>
+                    <option value=0>Han? Não ouvi.</option>
                     <!-- <option value=1>Pontudas.</option>
                     <option value=2>Chifrinho.</option>
                     <option value=3>Tufo.</option> -->
@@ -83,9 +90,9 @@
                     <option value=12>A floresta mágica me guia.</option>
                   </select>
 
-                  <label for="select-eye">ozoi</label>
+                  <label for="select-eye">Veja como são as coisas</label>
                   <select class="form-control" id="select-eye" onchange='changeEyes(this.value);'>
-                    <option value=0>Enxergo com meus outros sentidos</option>
+                    <option value=0>Não vejo, apenas sinto</option>
                     <!-- <option value=1>Normal.</option>
                     <option value=2>Zoiao.</option>
                     <option value=3>Alien.</option> -->
@@ -101,41 +108,41 @@
                     <option value=13>Minha realeza faz com que eu seja obrigado a lhe encarar.</option>
                   </select>
 
-                  <label for="select-nose">nereba</label>
+                  <label for="select-nose">Captador de cheiros</label>
                   <select class="form-control" id="select-nose" onchange='changeNose(this.value);'>
-                    <option value=0>Não preciso de cheiros</option>
+                    <option value=0>Nem sei qual a necessidade disso</option>
                     <option value=1>Amor.</option>
                     <option value=2>Preciso de articulações aqui também.</option>
                   </select>
 
-                  <label for="select-mouth">beiço</label>
+                  <label for="select-mouth">O que tem pra dizer</label>
                   <select class="form-control" id="select-mouth" onchange='changeMouth(this.value);'>
-                    <option value=0>Adquiro energia de outras maneiras</option>
+                    <option value=0>Não digo nada</option>
                     <option value=1>Anime.</option>
                     <option value=2>Existe um centro gravitacional aqui.</option>
                     <option value=3>Possuo veneno.</option>
                     <option value=4>Meus dentes devem consumir tudo que existe no caminho.</option>
                   </select>
 
-                  <label for="select-arms">os bração</label>
+                  <label for="select-arms">Abraçador</label>
                   <select class="form-control" id="select-arms" onchange='changeArms(this.value);'>
-                    <option value=0>Não necessito de articulações</option>
+                    <option value=0>Sem abraços hoje</option>
                     <!-- <option value=1>Forte.</option>
                     <option value=2>Macarrão.</option>
                     <option value=3>Palito.</option> -->
                     <option value=4>Minhas articulações um dia ficarão enferrujadas.</option>
-                    <option value=5>Logo vou planar para fora desta tela.</option>
+                    <!-- <option value=5>Logo vou planar para fora desta tela.</option> -->
                     <option value=6>Meu braço transcende essa dimensão.</option>
                     <option value=7>O preço das minhas escamas foi uma desvantagem de tamanho.</option>
                     <option value=8>Logo vou me esticar pela escuridão.</option>
                     <option value=9>Este cano pixelizado representa a minha falta de natureza.</option>
                     <option value=10>Tenho muitos pelos, isso acaba me atrapalhando.</option>
-                    <option value=11>Para dentes brancos e saudáveis.</option>
+                    <!-- <option value=11>Para dentes brancos e saudáveis.</option> -->
                   </select>
 
-                  <label for="select-hands">as mãozinha</label>
+                  <label for="select-hands">Quer uma mãozinha?</label>
                   <select class="form-control" id="select-hands" onchange='changeHands(this.value);'>
-                    <option value=0>Carrego objetos de outras formas.</option>
+                    <option value=0>Preciso de uma mãozinha.</option>
                     <option value=1>Paz e amor.</option>
                     <option value=2>Meus dedos saudáveis vão deixar o mundo mais verde.</option>
                     <option value=3>Minha pele está próxima demais de meus ossos, mas estou okay.</option>
@@ -147,12 +154,12 @@
                     <option value=9>A janta está pronta!</option>
                     <option value=10>Meu algoritmo arruma meus pixels para que eu interaja com o exterior</option>
                     <option value=11>Minha realeza te aceita</option>
-                    <option value=12>Minha realeza te despreza</option>
+                    <!-- <option value=12>Minha realeza te despreza</option> -->
                   </select>
 
-                  <label for="select-legs">as pernoca</label>
+                  <label for="select-legs">O que te move na vida</label>
                   <select class="form-control" id="select-legs" onchange='changeLegs(this.value);'>
-                    <option value=0>Me arrasto por aí.</option>
+                    <option value=0>Eu só me arrasto.</option>
                     <!-- <option value=1>Curvado Esquerda.</option>
                     <option value=2>Reto.</option>
                     <option value=3>Curvado Direita.</option> -->
@@ -167,9 +174,9 @@
                     <option value=12>Meu algoritmo não me deu muitos pixels aqui.</option>
                   </select>
 
-                  <label for="select-feet">os pezao</label>
+                  <label for="select-feet">Qual o seu sustento</label>
                   <select class="form-control" id="select-feet" onchange='changeFeet(this.value);'>
-                    <option value=0>Nem sei pra que preciso disso.</option>
+                    <option value=0>Eu não me aguento.</option>
                     <!-- <option value=1>Cuei.</option>
                     <option value=2>Cobra.</option>
                     <option value=3>Dedo.</option> -->
@@ -179,9 +186,9 @@
                     <option value=7>Meus pixels mapeiam a terra.</option>
                   </select>
 
-                  <label for="select-back">costas</label>
+                  <label for="select-back">O que ficou pra trás</label>
                   <select class="form-control" id="select-back" onchange='changeBack(this.value);'>
-                    <option value=0>Estou bem sem isso.</option>
+                    <option value=0>Tirei um peso das costas.</option>
                     <option value=1>rabo.</option>
                     <option value=2>tentaculo.</option>
                   </select>
@@ -190,12 +197,12 @@
 
               <div class="d-flex justify-content-center">
                 <button class="btn btn-danger" onclick="randomizeAll()">
-                  OBLITERE minha criação, fazendo-a renascer.
+                  OBLITERAR CRIAÇÃO
                 </button>
               </div>
         </div>
 
-        <div class="creature-container">
+        <div id="creature" class="creature-container">
             <div id="result-body">
               <div id="result-head">
 
@@ -217,22 +224,31 @@
     </div>
 
     <div class="row" id="footer">
-      <div class="col-md-6">
+      <div id="sobre" class="col-md-6 col-sm-12">
         <h4>Sobre o Projeto</h4>
         <p><i>Avatura</i> é um projeto realizado na matéria <i>Produção Colaborativa via Web</i>, que pertence ao curso de Cinema de Animação e Artes Digitais da UFMG.</p>
         <p>O objetivo deste projeto é possibilitar a criação de diversas criaturas cujas partes foram produzidas individualmente, por diferentes pessoas.</p>
         <p>Nosso projeto pretende receber colaborações externas, que (por enquanto) serão analisadas individualmente para serem inclusas no projeto.</p>
+        <div id="footer-logos">
+          <img src="data/footer/ufmg-logo-white.png" width="300px"/>
+          <img src="data/footer/ufmg-eba.png" width="175px"/>
+        </div>
       </div>
-      <div class="col-md-6">
+      <div id="contribuir" class="col-md-6 col-sm-12">
         <h4>Como contribuir</h4>
         <p>Você acredita em sua criatividade e deseja adicionar novas formas para o projeto?</p>
         <h5>Com imagens:</h5>        
-        <p><b>Desenhe ou edite uma parte de corpo, exporte como uma imagem PNG de resolução até 800x800.</b></p>
+        <p>Desenhe/edite uma parte de corpo e <b>exporte como uma imagem PNG de resolução até 800x800.</b></p>
         <h5>Com textos:</h5>        
-        <p><b>Escreva uma frase sobre as partes que chamaram sua atenção, ou re-escreva uma das perguntas do formulário.</b></p>
+        <p>Escreva quais sessões do site você gostaria de re-escrever (Perguntas do formulário, textos sobre as partes, subtítulo do site, etc),
+        <b>e em seguida escreva o seu próprio texto para substituir o que já existe no site.</b></p>
+        <hr>
         <p><b>No fim, envie a sua colaboração para o seguinte e-mail:</b></p>
-        <p>[e-mail do projeto aqui]</p>
-        <p>Sua colaboração será recebida e consequentemente analisada pelo nosso conselho de analistas de criaturas abstratas.</p>
+        <div class="footer-mail-container">
+          <a href="mailto:projetoavatura@gmail.com" class="footer-mail">projetoavatura@gmail.com</a>
+        </div>
+        <p><b>Atenção: Todo o conteúdo deve ser exclusivamente de sua autoria. Além disso, não vamos aceitar imagens e textos que possuem conteúdo ofensivo.</b></p>
+        <p>Sua colaboração será recebida e consequentemente analisada pelo nosso conselho de analistas de criaturas e textos abstratos.</p>
         <p>Caso o nosso conselho aprove, ela será adicionada ao projeto!</p>
       </div>
     </div>
