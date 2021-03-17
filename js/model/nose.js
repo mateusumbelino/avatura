@@ -11,7 +11,8 @@ class nose extends shape
             },
             1: 
             {
-                'name': 'heart' 
+                'name': 'heart',
+                'attribute': 'melancia: 8; abóbora: 4', 
             },
             2: 
             {

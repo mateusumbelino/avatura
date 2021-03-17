@@ -23,7 +23,8 @@ class eyes extends shape
             },
             4: 
             {
-                'name': 'pilulas' 
+                'name': 'pilulas',
+                'attribute': 'macarrão: 9; berinjela: 2',
             },
             5: 
             {

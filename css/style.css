@@ -72,7 +72,7 @@ body {
 }
 
 #site-body {
-    height: 1080px; /*Isso é horrível pelo amor de Deus arrumar um jeito de fazer sem isso aqui depois*/
+    height: auto; 
 }
 
 .form-container {
@@ -80,10 +80,46 @@ body {
     padding: 50px;
     font-weight: 600;
     font-size: 18px;
-    color: #282828;
+    color: #2e1313;
     background-image: url(../data/formBG/tornpaper.png);
     background-size: cover;
-    padding-right: 5%;
+    padding-right: 10%;
+}
+
+#attrs {
+    padding: 15px;
+    margin-bottom: 20px;
+    border-radius: 18px;
+    background-color: #fbfcfd;
+}
+
+#attrs h3 {
+    padding-bottom: 10px;
+}
+
+.attribute-container {
+    display: flex;
+    justify-content: center;
+    border-radius: 5px;
+    font-size: 18px;
+    margin-bottom: 10px;
+    background: linear-gradient(0deg, rgb(232 235 236) 0%, rgba(203,215,205,1) 100%);
+}
+
+
+.attribute-name {
+    width: 50%;
+    padding-left: 10px;
+}
+
+.attribute-name span{
+    font-family: 'Doctor Punk', Arial, Helvetica, sans-serif;
+}
+
+.attribute-value {
+    width: 50%;
+    text-align: end;
+    padding-right: 10px;
 }
 
 select {
@@ -189,6 +225,7 @@ select {
     background-image: url(../data/formBG/colagem.jpg);
     color: white;
     padding: 30px;
+    width: auto;
 }
 
 #footer h4 {
@@ -248,21 +285,19 @@ background: #555;
         width: fit-content;
     }
 
-    #site-body {
-        height: auto;
-    }
-
     .form-container {
-        width: 100%;
-        padding: 5%;
-        padding-right: 20%;
+        width: auto;
+        padding: 50px;
+        padding-right: 30%;
         border-bottom: 4px solid #969696;
     }
 
     .creature-container {
-        width: 100%;
+        width: 90%;
         padding-top: 10%;
         padding-bottom: 20%;
+        padding-left: 0%;
+        padding-right: 0%;
     }
 
     #footer .col-md-6:nth-child(1) {
