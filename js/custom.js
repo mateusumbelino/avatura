@@ -11,6 +11,10 @@ const MOUTH = new mouth();
 const NOSE = new nose();
 const BACK = new back();
 
+const BODY_PARTS = [BODY, ARMS, HANDS, LEGS, FOOT, HEAD, EYES, EARS, MOUTH, NOSE, BACK];
+
+const BODY_OPTION = 'select-body';
+
 const RESULT_BODY = 'result-body';
 
 const RESULT_HEAD = 'result-head';
@@ -77,6 +81,16 @@ const RESULT_MOUTH_CLASS = 'result-mouth mouth-n';
 
 const RESULT_NOSE_CLASS = 'result-nose nose-n';
 
+const FIRST_COLUMN_ATTR_ID = 'attr-1';
+
+const SECOND_COLUMN_ATTR_ID = 'attr-2';
+
+const ATTR_CONTAINER_CLASS = 'attribute-container';
+
+const ATTR_NAME_CLASS = 'attribute-name';
+
+const ATTR_VALUE_CLASS = 'attribute-value';
+
 const changeBody = (newBody) => 
 {
     BODY.setId(parseInt(newBody, 10));
@@ -92,7 +106,6 @@ const changeBody = (newBody) =>
     addArms();
     addLegs();
     changeBack(document.getElementById(BACK_OPTION).value);
-    resizeBody();
 }
 
 const changeHead = (newHead) =>
@@ -120,7 +133,6 @@ const changeHead = (newHead) =>
     addEars();
     addNose();
     addMouth();
-    resizeBody();
     
 }
 
@@ -159,7 +171,6 @@ const changeEyes = (newEyes) =>
             eyesArr[i].style.backgroundImage = `url(${EYES.getImg()})`;
         }
     }
-    resizeBody();
 }
 
 const addEars = () =>
@@ -205,7 +216,6 @@ const changeEars = (newEars) =>
             earsArr[i].style.backgroundImage = `url(${EARS.getImg()})`;
         }
     }
-    resizeBody();
 }
 
 const addNose = () =>
@@ -243,7 +253,6 @@ const changeNose = (newNose) =>
             noseArr[i].style.backgroundImage = `url(${NOSE.getImg()})`;
         }
     }
-    resizeBody();
 }
 
 const addMouth = () =>
@@ -281,7 +290,6 @@ const changeMouth = (newMouth) =>
             mouthArr[i].style.backgroundImage = `url(${MOUTH.getImg()})`;
         }
     }
-    resizeBody();
 }
 
 const addArms = () =>
@@ -355,7 +363,6 @@ const changeArms = (newArms) =>
         }
     }
     changeHands(document.getElementById(HANDS_OPTION).value);
-    resizeBody();
 }
 
 const changeHands = (newHands) => 
@@ -387,7 +394,6 @@ const changeHands = (newHands) =>
             handsArr[i].style.backgroundImage = `url(${HANDS.getImg()})`;
         }
     }
-    resizeBody();
 }
 
 const addLegs = () =>
@@ -458,7 +464,6 @@ const changeLegs = (newLegs) =>
         }
     }
     changeFeet(document.getElementById(FOOT_OPTION).value);
-    resizeBody();
 }
 
 const changeFeet = (newFeet) => 
@@ -480,7 +485,6 @@ const changeFeet = (newFeet) =>
             footArr[i].style.backgroundImage = `url(${FOOT.getImg()})`;
         }
     }
-    resizeBody();
 }
 
 const changeBack = (newBack) =>
@@ -499,28 +503,29 @@ const changeBack = (newBack) =>
         back.style.zIndex = backPos['index'];
         back.style.backgroundImage = `url(${BACK.getImg()})`;
     }
-    resizeBody();
 }
 
 //Obrigado Rodrigo Rodrigues
-function getRandomArbitrary(min, max) {
-    return Math.random() * (max - min) + min;
-}
+const getRandomArbitrary = (min, max) => Math.random() * (max - min) + min;
 
 const randomizeAll = () =>
 {
     document.querySelectorAll('select').forEach(select => {
-        const maxRandomNumber = select.options.length
-        const randomNumber = getRandomArbitrary(1, maxRandomNumber)
-        select.selectedIndex = randomNumber
-        select.onchange() //MUDAR ISSO
-    })
+        const maxRandomNumber = select.options.length;
+        const randomNumber = getRandomArbitrary(1, maxRandomNumber);
+        select.selectedIndex = randomNumber;
+    });
+
+    changeBody(document.getElementById(BODY_OPTION).value);
+    resizeBody();
+    calculateAttributes();
+
 }
 
-function resizeBody() {
-    newWindowWidth = Math.max( document.body.scrollWidth, document.body.offsetWidth);
-    document.getElementById("header").style.width = newWindowWidth;
-    document.getElementById("footer").style.width = newWindowWidth;
+const resizeBody = () => {
+    let elm = document.getElementById('creature');
+    let scale = elm.offsetWidth / (elm.scrollWidth + (window.innerWidth * 0.3));
+    elm.style.transform = 'scale('+scale+')';
 }
 
 function changeSubtitle() {
@@ -545,4 +550,63 @@ function makeScreenshot() {
     html2canvas(document.getElementById("creature"), {scale: 1}).then(canvas => {
         document.body.appendChild(canvas);
     });
+}
+
+const calculateAttributes = () => 
+{
+    let allAttr = BODY_PARTS.map(part => part.getAttribute()).flat(1);
+    let splitSize = 6;
+
+    allAttr = Object.values(allAttr.reduce((total, nextPart) => {
+        if (total[Object.keys(nextPart)[0]])
+        {
+            total[Object.keys(nextPart)[0]][Object.keys(nextPart)[0]] += nextPart[Object.keys(nextPart)[0]]; 
+        }
+        else if (!!nextPart)
+        {
+            total[Object.keys(nextPart)[0]] = Object.assign({}, nextPart);
+        }
+        return total;
+    }, {}));
+
+    let splited = Array.from(
+        new Array(Math.ceil(allAttr.length / splitSize)),
+        (_, i) => allAttr.slice(i * splitSize, i * splitSize + splitSize)
+    );
+
+    document.getElementById(FIRST_COLUMN_ATTR_ID).innerHTML = '';
+    document.getElementById(SECOND_COLUMN_ATTR_ID).innerHTML = '';
+
+    for (let i = 0; i < splited.length && i < 2; i++)
+    {
+        let div;
+        switch (i)
+        {
+            case 0:
+                div = document.getElementById(FIRST_COLUMN_ATTR_ID)
+                break;
+            case 1:
+                div = document.getElementById(SECOND_COLUMN_ATTR_ID)
+                break;
+        }
+
+        splited[i].forEach(attr => {
+            let container = document.createElement('div');
+            container.className = ATTR_CONTAINER_CLASS;
+            let name = document.createElement('div');
+            name.className = ATTR_NAME_CLASS;
+            let nameText = `${Object.keys(attr)[0]}`;
+            let span = document.createElement('span');
+            span.appendChild(document.createTextNode(nameText.substr(0, 1)));
+            name.appendChild(span);
+            name.appendChild(document.createTextNode(nameText.substr(1)));
+            let value = document.createElement('div');
+            value.className = ATTR_VALUE_CLASS;
+            value.appendChild(document.createTextNode(`${String(attr[Object.keys(attr)[0]]).replace('.', ',')}`))
+            container.appendChild(name);
+            container.appendChild(value);
+            div.appendChild(container);
+        });
+    }
+
 }

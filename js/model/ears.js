@@ -23,7 +23,8 @@ class ears extends shape
             },
             4: 
             {
-                'name': 'Planta1' 
+                'name': 'Planta1',
+                'attribute': 'chocolate: 2; melão: 5',
             },
             5: 
             {

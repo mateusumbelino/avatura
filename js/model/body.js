@@ -22,6 +22,7 @@ class body extends shape
             {
                 'countLegs': 2,
                 'countArms': 2,
+                'attribute': 'batata: 2; couve: 5',
                 'name': 'Statue'  
             },
             3: 

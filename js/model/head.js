@@ -20,6 +20,7 @@ class head extends shape
                 'countEars': 2,
                 'countMouth': 1,
                 'countNose': 1,
+                'attribute': 'batata: 2.2; couve: 5',
                 'name': 'RedMonster2' 
             },
             2: 
