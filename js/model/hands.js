@@ -35,7 +35,7 @@ class hands extends shape
             },
             7: 
             {
-                'name': 'thumbsup' 
+                'name': 'joinha' 
             },
             8: 
             {

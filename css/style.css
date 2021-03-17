@@ -1,46 +1,78 @@
-/* NEW FONT - PLAY WITH FIRE */
+/* NEW FONT - We Have Your Chocolate */
 @font-face {
-    font-family: 'Play With Fire';
-    src: url('../data/fonts/playwithfire/play_with_fire-webfont.eot');
-    src: url('../data/fonts/playwithfire/play_with_fire-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../data/fonts/playwithfire/play_with_fire-webfont.woff2') format('woff2'),
-         url('../data/fonts/playwithfire/play_with_fire-webfont.woff') format('woff'),
-         url('../data/fonts/playwithfire/play_with_fire-webfont.ttf') format('truetype'),
-         url('../data/fonts/playwithfire/play_with_fire-webfont.svg') format('svg');
+    font-family: 'We Have Your Chocolate';
+    src: url('../data/fonts/wehaveyourchocolate/kb3wehaveyourchocolate-webfont.eot');
+    src: url('../data/fonts/wehaveyourchocolate/kb3wehaveyourchocolate-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../data/fonts/wehaveyourchocolate/kb3wehaveyourchocolate-webfont.woff2') format('woff2'),
+         url('../data/fonts/wehaveyourchocolate/kb3wehaveyourchocolate-webfont.woff') format('woff'),
+         url('../data/fonts/wehaveyourchocolate/kb3wehaveyourchocolate-webfont.ttf') format('truetype'),
+         url('../data/fonts/wehaveyourchocolate/kb3wehaveyourchocolate-webfont.svg') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
-/* NEW FONT - WATER SPLASH */
+/* NEW FONT - Doctor Punk */
 @font-face {
-    font-family: 'Water Splash';
-    src: url('../data/fonts/watersplash/watersplash-webfont.eot');
-    src: url('../data/fonts/watersplash/watersplash-webfont.eot?#iefix') format('embedded-opentype'),
-         url('../data/fonts/watersplash/watersplash-webfont.woff2') format('woff2'),
-         url('../data/fonts/watersplash/watersplash-webfont.woff') format('woff'),
-         url('../data/fonts/watersplash/watersplash-webfont.ttf') format('truetype'),
-         url('../data/fonts/watersplash/watersplash-webfont.svg') format('svg');
+    font-family: 'Doctor Punk';
+    src: url('../data/fonts/doctorpunk/doctor_punk-webfont.eot');
+    src: url('../data/fonts/doctorpunk/doctor_punk-webfont.eot?#iefix') format('embedded-opentype'),
+         url('../data/fonts/doctorpunk/doctor_punk-webfont.woff2') format('woff2'),
+         url('../data/fonts/doctorpunk/doctor_punk-webfont.woff') format('woff'),
+         url('../data/fonts/doctorpunk/doctor_punk-webfont.ttf') format('truetype'),
+         url('../data/fonts/doctorpunk/doctor_punk-webfont.svg') format('svg');
     font-weight: normal;
     font-style: normal;
 }
 
 #header {
-    background: #ccc;
+    display: flex;
+    justify-content: center;
+    background-blend-mode: multiply;
+    background: #000000cc;
+    background-image: url(../data/formBG/colagem.jpg);
+    text-align: center;
+    border-bottom: 2px solid white;
 }
 
-#header h4 {
-    font-family: 'Water Splash', Arial, Helvetica, sans-serif;
+#header h1 {
+    font-size: 82px;
+    font-family: 'We Have Your Chocolate', Arial, Helvetica, sans-serif;
     text-align: center;
-    font-size: 72px;
-  }
+    color: white;
+}
+
+#header h3 {
+    font-size: 38px;
+    font-family: 'Doctor Punk', Arial, Helvetica, sans-serif;
+    text-align: center;
+    color: white;
+}
+
+#header hr {
+    width: 35%;
+    border-top: 3px solid white;
+}
+
+#header-links {
+    display: flex;
+    justify-content: center;
+}
+
+#header-links a {
+    color: white;
+    padding: 0px 15px 10px 15px;
+    font-family: Arial, Helvetica, sans-serif;
+}
 
 body {
-    overflow-x: hidden;
+    background-size: cover;
+    background-image: url(../data/creatureBG/gradient.jpg);
+    
     /*width: 150%; /*Isso é horrível pelo amor de Deus arrumar um jeito de fazer sem isso aqui depois*/
 }
 
 #site-body {
-    height: 1024px; /*Isso é horrível pelo amor de Deus arrumar um jeito de fazer sem isso aqui depois*/
+    height: 1080px; /*Isso é horrível pelo amor de Deus arrumar um jeito de fazer sem isso aqui depois*/
 }
 
 .form-container {
@@ -48,15 +80,10 @@ body {
     padding: 50px;
     font-weight: 600;
     font-size: 18px;
-    color: white;
-    text-shadow: 1px 2px #000000;
+    color: #282828;
+    background-image: url(../data/formBG/tornpaper.png);
     background-size: cover;
-    background-image: url(../data/formBG/wood.jpg);
-    border-right: 1px solid #ccc;
-    border-image-source: url(../data/formBG/bark.jpg);
-    border-image-slice: 10%;
-    border-image-width: 40px;
-    border-image-repeat: stretch;
+    padding-right: 5%;
 }
 
 select {
@@ -66,10 +93,9 @@ select {
 .creature-container {
     width: 60%; /*Isso é horrível pelo amor de Deus arrumar um jeito de fazer sem isso aqui depois*/
     padding-top: 5%;
-    padding-left: 3%;
-    background-size: cover;
-    background-image: url(../data/creatureBG/forest.jpg);
+    padding-left: 5%;
     z-index: -5;
+    
 }
 
 #result-body {
@@ -101,6 +127,19 @@ select {
     /*border: 1px solid black;*/
 }
 
+.result-nose  {
+    width: 300px;
+    height: 300px;
+    position: relative;
+    /*border: 1px solid black;*/
+}
+
+.result-mouth  {
+    width: 300px;
+    height: 200px;
+    position: relative;
+    /*border: 1px solid black;*/
+}
 .result-ear  {
     width: 250px;
     height: 200px;
@@ -136,8 +175,50 @@ select {
     /*border: 1px solid black;*/
 }
 
+#result-back  {
+    width: 400px;
+    height: 400px;
+    position: relative;
+    /*border: 1px solid black;*/
+}
+
 #footer {
-    background: #ccc;
+    border-top: 2px solid white;
+    background-blend-mode: multiply;
+    background: #000000cc;
+    background-image: url(../data/formBG/colagem.jpg);
+    color: white;
+    padding: 30px;
+}
+
+#footer h4 {
+    text-decoration: underline;
+}
+
+#footer .col-md-6:nth-child(1) {
+    border-right: 2px solid white;
+}
+
+.footer-mail-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.footer-mail {
+    text-align: center;
+    color: white;
+}
+
+#footer-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#footer-logos img {
+    height: fit-content;
+    margin: 0px 25px;
 }
 
 /* CUSTOM SCROLLBAR */
@@ -161,27 +242,35 @@ background: #3b3b3b;
 background: #555; 
 }
 
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
+@media screen and (max-width: 1280px) {
 
-}
+    body {
+        width: fit-content;
+    }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
-@media only screen and (min-width: 600px) {
+    #site-body {
+        height: auto;
+    }
 
-}
+    .form-container {
+        width: 100%;
+        padding: 5%;
+        padding-right: 20%;
+        border-bottom: 4px solid #969696;
+    }
 
-/* Medium devices (landscape tablets, 768px and up) */
-@media only screen and (min-width: 768px) {
+    .creature-container {
+        width: 100%;
+        padding-top: 10%;
+        padding-bottom: 20%;
+    }
 
-}
+    #footer .col-md-6:nth-child(1) {
+        border-right: none;
+        border-bottom: 1px solid white;
+    }
 
-/* Large devices (laptops/desktops, 992px and up) */
-@media only screen and (min-width: 992px) {
-
-}
-
-/* Extra large devices (large laptops and desktops, 1200px and up) */
-@media only screen and (min-width: 1200px) {
-
+    #footer .col-md-6:nth-child(2) {
+        padding-top: 25px;
+    }
 }

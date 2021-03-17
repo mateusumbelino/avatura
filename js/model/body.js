@@ -78,6 +78,12 @@ class body extends shape
                 'countArms': 2,
                 'name': 'King'
             },
+            12: 
+            {
+                'countLegs': 4,
+                'countArms': 2,
+                'name': 'Phone'
+            },
         };
         super(id, path, options);
         
@@ -129,9 +135,9 @@ class body extends shape
                 spacing['left'] = 245; 
                 break;
             case 7:
-                    spacing['top'] = -25;   
-                    spacing['left'] = 255; 
-                    break;
+                spacing['top'] = -25;   
+                spacing['left'] = 255; 
+                break;
             case 7:
                 spacing['top'] = -25;   
                 spacing['left'] = 255; 
@@ -150,6 +156,10 @@ class body extends shape
                 spacing['left'] = 255; 
                 break;
             case 11: //King
+                spacing['top'] = 40;   
+                spacing['left'] = 255; 
+                break;
+            case 12: //Phone
                 spacing['top'] = 40;   
                 spacing['left'] = 255; 
                 break;
@@ -202,7 +212,7 @@ class body extends shape
                     case 1:
                         spacing['top'] = 125; 
                         spacing['left'] = 335;  
-                        spacing['index'] = 0;
+                        spacing['index'] = 1;
                         spacing['rotate'] = 45;
                         break;
                     case 2:
@@ -272,34 +282,34 @@ class body extends shape
                         break;
                 }
                 break;
-            case 7:
+            case 7: //Reptil
                 switch(arm)
                 {
                     case 1:
                         spacing['top'] = -140; 
                         spacing['left'] = 15;  
-                        spacing['index'] = 1;
+                        spacing['index'] = 3;
                         spacing['flip'] = true;
                         break;
                     case 2:
                         spacing['top'] = -535; 
                         spacing['left'] = 450;  
-                        spacing['index'] = 1;
+                        spacing['index'] = 3;
                         break;
                 }
                 break;
-            case 8:
+            case 8: //Red Monster
                 switch(arm)
                 {
                     case 1:
                         spacing['top'] = -110; 
                         spacing['left'] = 260;  
-                        spacing['index'] = 1;
+                        spacing['index'] = 3;
                         break;
                     case 2:
                         spacing['top'] = -543; 
                         spacing['left'] = 450;  
-                        spacing['index'] = 0;
+                        spacing['index'] = 2;
                         break;
                 }
                 break;
@@ -309,7 +319,7 @@ class body extends shape
                     case 1:
                         spacing['top'] = -10; 
                         spacing['left'] = 475;  
-                        spacing['index'] = 1;
+                        spacing['index'] = 3;
                         break;
                     case 2:
                         spacing['top'] = -430; 
@@ -318,48 +328,48 @@ class body extends shape
                         break;
                 }
                 break;
-            case 8:
+            case 10: //Robot
                 switch(arm)
                 {
                     case 1:
                         spacing['top'] = -110; 
                         spacing['left'] = 260;  
-                        spacing['index'] = 1;
+                        spacing['index'] = 3;
                         break;
                     case 2:
                         spacing['top'] = -543; 
                         spacing['left'] = 450;  
-                        spacing['index'] = 0;
+                        spacing['index'] = 2;
                         break;
                 }
                 break;
-            case 10:
+            case 11: //King
                 switch(arm)
                 {
                     case 1:
                         spacing['top'] = -110; 
                         spacing['left'] = 260;  
-                        spacing['index'] = 1;
+                        spacing['index'] = 3;
                         break;
                     case 2:
                         spacing['top'] = -543; 
                         spacing['left'] = 450;  
-                        spacing['index'] = 0;
+                        spacing['index'] = 2;
                         break;
                 }
                 break;
-            case 11:
+            case 12: //Phone
                 switch(arm)
                 {
                     case 1:
                         spacing['top'] = -110; 
                         spacing['left'] = 260;  
-                        spacing['index'] = 1;
+                        spacing['index'] = 3;
                         break;
                     case 2:
                         spacing['top'] = -543; 
                         spacing['left'] = 450;  
-                        spacing['index'] = 0;
+                        spacing['index'] = 2;
                         break;
                 }
                 break;
@@ -478,8 +488,8 @@ class body extends shape
                         break;
                 }
                 break;
-            case 6:
-                spacing['top'] = 140-((leg-1)*legHeight);
+            case 6: //Gel
+                spacing['top'] = 260-((leg-1)*legHeight);
                 switch(leg)
                 {
                     case 1:
@@ -492,8 +502,8 @@ class body extends shape
                         break;
                 }
                 break;
-            case 7:
-                spacing['top'] = 150-((leg-1)*legHeight);
+            case 7: //Reptil
+                spacing['top'] = 245-((leg-1)*legHeight);
                 switch(leg)
                 {
                     case 1:
@@ -544,15 +554,16 @@ class body extends shape
                         break;
                 }
                 break;
-            case 10:
-                spacing['top'] = 150-((leg-1)*legHeight);
+            case 10: //Pixel Robot
                 switch(leg)
                 {
                     case 1:
+                        spacing['top'] = 135;
                         spacing['left'] = 280;  
                         spacing['index'] = 1;
                         break;
                     case 2:
+                        spacing['top'] = -238;
                         spacing['left'] = 160;  
                         spacing['index'] = 1;
                         spacing['flip'] = true;
@@ -574,9 +585,44 @@ class body extends shape
                         break;
                 }
                 break;
+            case 12: //Phone
+            spacing['top'] = 150-((leg-1)*legHeight);
+            switch(leg)
+            {
+                case 1:
+                    spacing['left'] = 400;  
+                    spacing['index'] = -1;
+                    break;
+                case 2:
+                    spacing['left'] = 310;  
+                    spacing['index'] = 1;
+                    break;
+                case 3:
+                    spacing['left'] = 180;  
+                    spacing['index'] = -1;
+                    break;
+                case 4:
+                    spacing['left'] = 90;  
+                    spacing['index'] = 1;
+                    break;
+            }
+            break;
         }
         return spacing;
     }
 
+
+    getBackSpacing()
+    {
+        let spacing = [];
+        switch (this.id) {
+            default:
+                spacing['top'] = -110; 
+                spacing['left'] = 334;  
+                spacing['index'] = -2;
+                break;
+        }
+        return spacing;
+    }
 
 }
