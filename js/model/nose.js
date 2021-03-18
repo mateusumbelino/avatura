@@ -7,15 +7,18 @@ class nose extends shape
         {
             0: 
             {
-                'name': null 
+                'name': null,
+                'attribute': 'força: 0; destreza: 0; resistência: 0; sabedoria: 0; abstração: 0'
             },
             1: 
             {
-                'name': 'heart' 
+                'name': 'heart',
+                'attribute': 'força: 0; destreza: 0; resistência: 1; sabedoria: 0; abstração: 6; fofura: 4'
             },
             2: 
             {
-                'name': 'trunk' 
+                'name': 'trunk',
+                'attribute': 'força: 0; destreza: 0; resistência: 2; sabedoria: 0; abstração: 6; nereba: 2'
             },
         };
         super(id, path, options);

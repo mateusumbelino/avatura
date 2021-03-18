@@ -10,78 +10,92 @@ class body extends shape
             {
                 'countLegs': 0,
                 'countArms': 0,
-                'name': null 
+                'name': null,
+                'attribute': 'força: 0; destreza: 0; resistência: 0; sabedoria: 0; abstração: 0',
+                
             },
             1: 
             {
                 'countLegs': 1,
                 'countArms': 2,
+                'attribute': 'força: 1; destreza: 1; resistência: 1; sabedoria: 1; abstração: 5',
                 'name': 'Worm' 
             },
             2: 
             {
                 'countLegs': 2,
                 'countArms': 2,
+                'attribute': 'força: 5; destreza: 2; resistência: 4; sabedoria: 3; abstração: 3',
                 'name': 'Statue'  
             },
             3: 
             {
                 'countLegs': 4,
                 'countArms': 2,
-                'name': 'Shell' 
+                'attribute': 'força: 2; destreza: 1; resistência: 5; sabedoria: 3; abstração: 3',
+                'name': 'Shell'
             },
             4: 
             {
                 'countLegs': 6,
                 'countArms': 0,
+                'attribute': 'força: 1; destreza: 5; resistência: 1; sabedoria: 0; abstração: 5; desprezo: 5',
                 'name': 'Fly'  
             },
             5: 
             {
                 'countLegs': 3,
                 'countArms': 2,
+                'attribute': 'força: 5; destreza: 5; resistência: 2; sabedoria: 2; abstração: 5',
                 'name': 'noodle3D'  
             },
             6: 
             {
                 'countLegs': 2,
                 'countArms': 4,
+                'attribute': 'força: 5; destreza: 1; resistência: 5; sabedoria: 3; abstração: 5',
                 'name': 'Gel'  
             },
             7: 
             {
                 'countLegs': 2,
                 'countArms': 2,
-                'name': 'reptil'  
+                'name': 'reptil',
+                'attribute': 'força: 3; destreza: 3; resistência: 3; sabedoria: 3; abstração: 2; escamas: 2',
             },
             8: 
             {
                 'countLegs': 2,
                 'countArms': 2,
-                'name': 'RedMonster'  
+                'attribute': 'força: 4; destreza: 3; resistência: 2; sabedoria: 0; abstração: 2; pavor: 2',
+                'name': 'RedMonster'
             },
             9: 
             {
                 'countLegs': 4,
                 'countArms': 2,
+                'attribute': 'força: 2; destreza: 1; resistência: 5; sabedoria: 4; abstração: 3',
                 'name': 'Camel'  
             },
             10: 
             {
                 'countLegs': 2,
                 'countArms': 2,
+                'attribute': 'força: 2; destreza: 1; resistência: 4; sabedoria: 4; abstração: 4',
                 'name': 'PixelRobot'  
             },
             11: 
             {
                 'countLegs': 2,
                 'countArms': 2,
+                'attribute': 'força: 1; destreza: 2; resistência: 2; sabedoria: 4; abstração: 4; realeza: 2',
                 'name': 'King'
             },
             12: 
             {
                 'countLegs': 4,
                 'countArms': 2,
+                'attribute': 'força: 1; destreza: 2; resistência: 2; sabedoria: 5; abstração: 5',
                 'name': 'Phone'
             },
         };

@@ -8,7 +8,8 @@ class arms extends shape
         {
             0: 
             {
-                'name': null 
+                'name': null,
+                'attribute': 'força: 0; destreza: 0; resistência: 0; sabedoria: 0; abstração: 0'
             },
             1: 
             {
@@ -24,7 +25,8 @@ class arms extends shape
             },
             4: 
             {
-                'name': 'Robot' 
+                'name': 'Robot',
+                'attribute': 'força: 3; destreza: 0; resistência: 4; sabedoria: 0; abstração: 2; robô: 4'
             },
             5: 
             {
@@ -32,27 +34,33 @@ class arms extends shape
             },
             6: 
             {
-                'name': 'Noodle3D' 
+                'name': 'Noodle3D',
+                'attribute': 'força: 5; destreza: 0; resistência: 3; sabedoria: 0; abstração: 6; dimensões: 6'
             },
             7: 
             {
-                'name': 'reptil' 
+                'name': 'reptil',
+                'attribute': 'força: 3; destreza: 0; resistência: 2; sabedoria: 0; abstração: 1; escamas: 2'
             },
             8: 
             {
-                'name': 'RedMonster' 
+                'name': 'RedMonster',
+                'attribute': 'força: 4; destreza: 0; resistência: 2; sabedoria: 0; abstração: 2; pavor: 4'
             },
             9: 
             {
-                'name': 'PixelRobot' 
+                'name': 'PixelRobot',
+                'attribute': 'força: 3; destreza: 0; resistência: 4; sabedoria: 0; abstração: 4; robô: 3'
             },
             10: 
             {
-                'name': 'Hairy' 
+                'name': 'Hairy',
+                'attribute': 'força: 4; destreza: 0; resistência: 3; sabedoria: 0; abstração: 2; peludo: 4'
             },
             11: 
             {
-                'name': 'Toothbrush' 
+                'name': 'Toothbrush',
+                'attribute': 'força: 1; destreza: 0; resistência: 1; sabedoria: 0; abstração: 6; saúde: 5'
             }
         };
         super(id, path, options);

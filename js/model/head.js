@@ -12,6 +12,7 @@ class head extends shape
                 'countEars': 0,
                 'countMouth': 0,
                 'countNose': 0,
+                'attribute': 'força: 0; destreza: 0; resistência: 0; sabedoria: 0; abstração: 0',
                 'name': null 
             },
             1: 
@@ -20,6 +21,7 @@ class head extends shape
                 'countEars': 2,
                 'countMouth': 1,
                 'countNose': 1,
+                'attribute': 'força: 0; destreza: 0; resistência: 0; sabedoria: 0; abstração: 1; brilho: 2',
                 'name': 'RedMonster2' 
             },
             2: 
@@ -28,6 +30,7 @@ class head extends shape
                 'countEars': 2,
                 'countMouth': 1,
                 'countNose': 1,
+                'attribute': 'força: 1; destreza: 0; resistência: 0; sabedoria: 0; abstração: 0; pavor: 2',
                 'name': 'RedMonster'  
             },
             3: 
@@ -36,6 +39,7 @@ class head extends shape
                 'countEars': 2,
                 'countMouth': 1,
                 'countNose': 1,
+                'attribute': 'força: 0; destreza: 0; resistência: 1; sabedoria: 2; abstração: 1; realeza: 2',
                 'name': 'King' 
             },
             4: 
@@ -44,6 +48,7 @@ class head extends shape
                 'countEars': 2,
                 'countMouth': 1,
                 'countNose': 1,
+                'attribute': 'força: 0; destreza: 0; resistência: 1; sabedoria: 0; abstração: 2; fofura: 2',
                 'name': 'Doll' 
             },
             5: 
@@ -52,6 +57,7 @@ class head extends shape
                 'countEars': 2,
                 'countMouth': 1,
                 'countNose': 1,
+                'attribute': 'força: 0; destreza: 0; resistência: -1; sabedoria: 1; abstração: 2; ovo: 2',
                 'name': 'Egg' 
             },
             6: 
@@ -60,6 +66,7 @@ class head extends shape
                 'countEars': 2,
                 'countMouth': 1,
                 'countNose': 1,
+                'attribute': 'força: 0; destreza: 0; resistência: 1; sabedoria: 1; abstração: 1; pulso: 3',
                 'name': 'Heart3D' 
             },
             7: 
@@ -68,6 +75,7 @@ class head extends shape
                 'countEars': 2,
                 'countMouth': 1,
                 'countNose': 1,
+                'attribute': 'força: 0; destreza: 1; resistência: 0; sabedoria: 1; abstração: 2; saúde: 3',
                 'name': 'Cabagge' 
             },
             8: 
@@ -76,6 +84,7 @@ class head extends shape
                 'countEars': 2,
                 'countMouth': 1,
                 'countNose': 1,
+                'attribute': 'força: 2; destreza: -2; resistência: 3; sabedoria: 0; abstração: 3; brilho: 5',
                 'name': 'Gem' 
             },
             9: 
@@ -84,6 +93,7 @@ class head extends shape
                 'countEars': 2,
                 'countMouth': 1,
                 'countNose': 1,
+                'attribute': 'força: 2; destreza: 2; resistência: 0; sabedoria: 0; abstração: 1; escamas: 2',
                 'name': 'reptil' 
             },
             10: 
@@ -92,6 +102,7 @@ class head extends shape
                 'countEars': 2,
                 'countMouth': 1,
                 'countNose': 1,
+                'attribute': 'força: 1; destreza: 1; resistência: 1; sabedoria: 0; abstração: 2; robô: 2',
                 'name': 'PixelRobot' 
             }
         };
