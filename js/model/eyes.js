@@ -7,7 +7,8 @@ class eyes extends shape
         {
             0: 
             {
-                'name': null 
+                'name': null,
+                'attribute': 'força: 0; destreza: 0; resistência: 0; sabedoria: 0; abstração: 0'
             },
             1: 
             {
@@ -24,43 +25,52 @@ class eyes extends shape
             4: 
             {
                 'name': 'pilulas',
-                'attribute': 'macarrão: 9; berinjela: 2',
+                'attribute': 'força: 0; destreza: 0; resistência: 1; sabedoria: 0; abstração: 5; narcóticos: 6'
             },
             5: 
             {
-                'name': 'flor' 
+                'name': 'flor',
+                'attribute': 'força: 0; destreza: 0; resistência: 1; sabedoria: 0; abstração: 2; fofura: 2'
             },
             6: 
             {
-                'name': 'ndormir' 
+                'name': 'ndormir',
+                'attribute': 'força: 0; destreza: -2; resistência: 0; sabedoria: 4; abstração: 3; cansaço: 5'
             },
             7: 
             {
-                'name': 'fechados' 
+                'name': 'fechados',
+                'attribute': 'força: 0; destreza: 0; resistência: 0; sabedoria: 2; abstração: 3; mágico: 5'
             },
             8: 
             {
-                'name': 'magico' 
+                'name': 'magico',
+                'attribute': 'força: 0; destreza: 3; resistência: 0; sabedoria: 1; abstração: 2; mágico: 4'
             },
             9: 
             {
-                'name': 'reptil' 
+                'name': 'reptil',
+                'attribute': 'força: 0; destreza: 2; resistência: 0; sabedoria: 0; abstração: 1; escamas: 2'
             },
             10: 
             {
-                'name': 'floppa' 
+                'name': 'floppa',
+                'attribute': 'força: 0; destreza: 5; resistência: 0; sabedoria: 3; abstração: 2; floppa: 500'
             },
             11: 
             {
-                'name': 'RedMonster' 
+                'name': 'RedMonster',
+                'attribute': 'força: 1; destreza: 2; resistência: 0; sabedoria: 0; abstração: 1; pavor: 3'
             },
             12: 
             {
-                'name': 'PixelRobot' 
+                'name': 'PixelRobot',
+                'attribute': 'força: 1; destreza: 0; resistência: 0; sabedoria: 3; abstração: 2; robô: 2'
             },
             13: 
             {
-                'name': 'King' 
+                'name': 'King',
+                'attribute': 'força: 0; destreza: 1; resistência: 0; sabedoria: 0; abstração: 1; realeza: 2'
             }
         };
         super(id, path, options);

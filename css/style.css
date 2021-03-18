@@ -83,14 +83,17 @@ body {
     color: #2e1313;
     background-image: url(../data/formBG/tornpaper.png);
     background-size: cover;
+    background-position: right;
     padding-right: 10%;
 }
 
 #attrs {
+    visibility: hidden;
     padding: 15px;
     margin-bottom: 20px;
     border-radius: 18px;
     background-color: #fbfcfd;
+    margin-top: 15%;
 }
 
 #attrs h3 {
@@ -101,7 +104,7 @@ body {
     display: flex;
     justify-content: center;
     border-radius: 5px;
-    font-size: 18px;
+    font-size: 38px;
     margin-bottom: 10px;
     background: linear-gradient(0deg, rgb(232 235 236) 0%, rgba(203,215,205,1) 100%);
 }
@@ -113,7 +116,7 @@ body {
 }
 
 .attribute-name span{
-    font-family: 'Doctor Punk', Arial, Helvetica, sans-serif;
+    font-family: 'We Have Your Chocolate', Arial, Helvetica, sans-serif;
 }
 
 .attribute-value {
@@ -249,8 +252,10 @@ select {
 
 #footer-logos {
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
+    padding-bottom: 25px;
 }
 
 #footer-logos img {
@@ -279,6 +284,34 @@ background: #3b3b3b;
 background: #555; 
 }
 
+@media screen and (max-width: 1920px) {
+    .creature-container {
+        margin-top: -10%;
+        margin-bottom: -5%;
+    }
+}
+
+@media screen and (max-width: 1630px) {
+    .creature-container {
+        margin-top: -15%;
+        margin-bottom: -10%;
+    }
+}
+
+@media screen and (max-width: 1440px) {
+    .creature-container {
+        margin-top: -17%;
+        margin-bottom: -12%;
+    }
+}
+
+@media screen and (max-width: 1360px) {
+    .creature-container {
+        margin-top: -20%;
+        margin-bottom: -15%;
+    }
+}
+
 @media screen and (max-width: 1280px) {
 
     body {
@@ -286,18 +319,18 @@ background: #555;
     }
 
     .form-container {
-        width: auto;
+        width: 100%;
         padding: 50px;
-        padding-right: 30%;
+        padding-right: 15%;
         border-bottom: 4px solid #969696;
     }
 
     .creature-container {
-        width: 90%;
+        width: 100%;
         padding-top: 10%;
         padding-bottom: 20%;
-        padding-left: 0%;
-        padding-right: 0%;
+        margin-top: -10%;
+        margin-bottom: -20%;
     }
 
     #footer .col-md-6:nth-child(1) {

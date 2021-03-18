@@ -554,6 +554,7 @@ function makeScreenshot() {
 
 const calculateAttributes = () => 
 {
+    document.getElementById("attrs").style.visibility = "visible"; //MUDAR ISSO DEPOIS
     let allAttr = BODY_PARTS.map(part => part.getAttribute()).flat(1);
     let splitSize = 6;
 
@@ -597,7 +598,7 @@ const calculateAttributes = () =>
             name.className = ATTR_NAME_CLASS;
             let nameText = `${Object.keys(attr)[0]}`;
             let span = document.createElement('span');
-            span.appendChild(document.createTextNode(nameText.substr(0, 1)));
+            span.appendChild(document.createTextNode(nameText.substr(0, 1).toUpperCase()));
             name.appendChild(span);
             name.appendChild(document.createTextNode(nameText.substr(1)));
             let value = document.createElement('div');
