@@ -132,10 +132,10 @@ const changeHead = (newHead) =>
         
         document.getElementById(RESULT_HEAD).style.backgroundImage = `url(${HEAD.getImg()})`; 
     }
-    document.getElementById(EYES_OPTION).disabled = HEAD.id == 0;
-    document.getElementById(EARS_OPTION).disabled = HEAD.id == 0;
-    document.getElementById(NOSE_OPTION).disabled = HEAD.id == 0;
-    document.getElementById(MOUTH_OPTION).disabled = HEAD.id == 0;
+    document.getElementById(EYES_OPTION).disabled = HEAD.id == 0 || BODY.id == 0;
+    document.getElementById(EARS_OPTION).disabled = HEAD.id == 0 || BODY.id == 0;
+    document.getElementById(NOSE_OPTION).disabled = HEAD.id == 0 || BODY.id == 0;
+    document.getElementById(MOUTH_OPTION).disabled = HEAD.id == 0 || BODY.id == 0;
     addEyes();
     addEars();
     addNose();
@@ -341,7 +341,7 @@ const addArms = () =>
 const changeArms = (newArms) => 
 {
     ARMS.setId(parseInt(newArms, 10));
-    document.getElementById(HANDS_OPTION).disabled = ARMS.id == 0;
+    document.getElementById(HANDS_OPTION).disabled = ARMS.id == 0 || BODY.id == 0;
     let armsArr = document.getElementsByClassName(RESULT_ARM_SINGLE_CLASS);
     for (let i = 0; i < armsArr.length; i++)
     {
@@ -443,7 +443,7 @@ const addLegs = () =>
 const changeLegs = (newLegs) =>
 {
     LEGS.setId(parseInt(newLegs, 10));
-    document.getElementById(FOOT_OPTION).disabled = LEGS.id == 0;
+    document.getElementById(FOOT_OPTION).disabled = LEGS.id == 0 || BODY.id == 0;
     let legsArr = document.getElementsByClassName(RESULT_LEG_SINGLE_CLASS);
     for (let i = 0; i < legsArr.length; i++)
     {
