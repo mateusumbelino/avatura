@@ -215,10 +215,17 @@ select {
 }
 
 #result-back  {
-    width: 400px;
-    height: 400px;
+    width: 800px;
+    height: 800px;
     position: relative;
     /*border: 1px solid black;*/
+}
+
+p.warning {
+    font-size: 16px;
+    color: #6b6b6b;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 #footer {

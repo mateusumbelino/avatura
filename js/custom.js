@@ -510,6 +510,16 @@ const changeBack = (newBack) =>
         back.style.left = backPos['left'];
         back.style.top = backPos['top'];
         back.style.zIndex = backPos['index'];
+        let transformString = "";
+        if (backPos['rotate'])
+        {
+            transformString += 'rotate('+backPos['rotate']+'deg) ';
+        }
+        if (backPos['flip'])
+        {
+            transformString += 'scaleX(-1) ';
+        }
+        back.style.transform = transformString;
         back.style.backgroundImage = `url(${BACK.getImg()})`;
     }
 }

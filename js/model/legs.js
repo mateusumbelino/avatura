@@ -8,7 +8,8 @@ class legs extends shape
         {
             0: 
             {
-                'name': null 
+                'name': null,
+                'attribute': 'força: 0; destreza: 0; resistência: 0; sabedoria: 0; abstração: 0'
             },
             1: 
             {
@@ -24,39 +25,48 @@ class legs extends shape
             },
             4: 
             {
-                'name': 'ReptilLeg' 
+                'name': 'ReptilLeg',
+                'attribute': 'força: 0; destreza: 2; resistência: 2; sabedoria: 0; abstração: 1; escamas: 3'
             },
             5: 
             {
-                'name': 'Jeans' 
+                'name': 'Jeans',
+                'attribute': 'força: 0; destreza: -3; resistência: 2; sabedoria: 0; abstração: 1; jeans: 7'
             },
             6: 
             {
-                'name': 'Microphone' 
+                'name': 'Microphone',
+                'attribute': 'força: 0; destreza: 2; resistência: 2; sabedoria: 0; abstração: 3; som: 10'
             },
             7: 
             {
-                'name': 'Pasta' 
+                'name': 'Pasta',
+                'attribute': 'força: 0; destreza: 3; resistência: -1; sabedoria: 5; abstração: 6; fome: 6'
             },
             8: 
             {
-                'name': 'Subway' 
+                'name': 'Subway',
+                'attribute': 'força: 0; destreza: -2; resistência: -2; sabedoria: 0; abstração: 6; fome: 20'
             },
             9: 
             {
-                'name': 'Spider' 
+                'name': 'Spider',
+                'attribute': 'força: 0; destreza: 3; resistência: 0; sabedoria: 0; abstração: 3; pavor: 20' 
             },
             10: 
             {
-                'name': 'Toothpick' 
+                'name': 'Toothpick',
+                'attribute': 'força: 0; destreza: 2; resistência: -30; sabedoria: 2; abstração: 5; fragil: 20'
             },
             11: 
             {
-                'name': 'RedMonster' 
+                'name': 'RedMonster',
+                'attribute': 'força: 2; destreza: 3; resistência: 2; sabedoria: 0; abstração: 1; pavor: 6'
             },
             12: 
             {
-                'name': 'PixelRobot' 
+                'name': 'PixelRobot',
+                'attribute': 'força: 0; destreza: 1; resistência: 2; sabedoria: 0; abstração: 2; robô: 3'
             },
         };
         super(id, path, options);

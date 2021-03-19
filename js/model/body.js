@@ -635,8 +635,80 @@ class body extends shape
                 spacing['left'] = 334;  
                 spacing['index'] = -2;
                 break;
+            case 1: //Worm
+                spacing['top'] = -170;   
+                spacing['left'] = -350; 
+                spacing['rotate'] = 330; 
+                spacing['index'] = -1;
+                break;
+            case 2: //Statue
+                spacing['top'] = -355;   
+                spacing['left'] = -310; 
+                spacing['index'] = -5; 
+                spacing['rotate'] = 45; 
+                break;
+            case 3: //Shell
+                spacing['top'] = -600;   
+                spacing['left'] = -480;
+                spacing['index'] = 0;  
+                spacing['rotate'] = 60; 
+                break;
+            case 4: //Fly
+                spacing['top'] = -540;   
+                spacing['left'] = -295; 
+                spacing['rotate'] = 45; 
+                spacing['index'] = -5;
+                break;
+            case 5: //3D Noodle
+                spacing['top'] = -485;   
+                spacing['left'] = -410; 
+                spacing['rotate'] = 25; 
+                spacing['index'] = -5;
+                break;
+            case 6: //Gel
+                spacing['top'] = -355;   
+                spacing['left'] = -465;
+                spacing['rotate'] = 0; 
+                spacing['index'] = -5; 
+                break;
+            case 7: //Reptil
+                spacing['top'] = -130;   
+                spacing['left'] = -285;
+                spacing['rotate'] = 330; 
+                spacing['index'] = -1; 
+                break;
+            case 8: //RedMonster
+                spacing['top'] = -255;   
+                spacing['left'] = -310;
+                spacing['rotate'] = 0; 
+                spacing['index'] = -1; 
+                break;
+            case 9: //Camel
+                spacing['top'] = -425;
+                spacing['left'] = -525;
+                spacing['rotate'] = 30;
+                spacing['index'] = -1;
+                break;
+            case 10: //Pixel Robot
+                spacing['top'] = -255;
+                spacing['left'] = -450;
+                spacing['rotate'] = 0;
+                spacing['index'] = -1;
+                break;
+            case 11: //King
+                spacing['top'] = -315;
+                spacing['left'] = -375;
+                spacing['rotate'] = 0;
+                spacing['index'] = -1;
+                break;
+            case 12: //Phone
+                spacing['top'] = -345;
+                spacing['left'] = -385;
+                spacing['rotate'] = 0;
+                spacing['index'] = -1;
+                break;
         }
-        return spacing;
+        return spacing;        
     }
 
 }

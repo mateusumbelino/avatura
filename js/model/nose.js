@@ -20,6 +20,21 @@ class nose extends shape
                 'name': 'trunk',
                 'attribute': 'força: 0; destreza: 0; resistência: 2; sabedoria: 0; abstração: 6; nereba: 2'
             },
+            3: 
+            {
+                'name': 'pinocchio',
+                'attribute': 'força: 0; destreza: 0; resistência: -2; sabedoria: -2; abstração: 3; nereba: 100'
+            },
+            4: 
+            {
+                'name': 'pig',
+                'attribute': 'força: 2; destreza: 0; resistência: 2; sabedoria: 0; abstração: 1; lama: 5'
+            },
+            5: 
+            {
+                'name': 'rudolph',
+                'attribute': 'força: 0; destreza: 0; resistência: 0; sabedoria: 3; abstração: 2; mágico: 4'
+            },
         };
         super(id, path, options);
     }
