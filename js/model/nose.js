@@ -35,6 +35,11 @@ class nose extends shape
                 'name': 'rudolph',
                 'attribute': 'força: 0; destreza: 0; resistência: 0; sabedoria: 3; abstração: 2; mágico: 4'
             },
+            6: 
+            {
+                'name': 'granada',
+                'attribute': 'força: 5; destreza: 0; resistência: -4; sabedoria: 0; abstração: 6; explosão: 10'
+            },
         };
         super(id, path, options);
     }

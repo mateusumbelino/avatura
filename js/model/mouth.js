@@ -30,6 +30,11 @@ class mouth extends shape
                 'name': 'teeth',
                 'attribute': 'força: 5; destreza: 0; resistência: 0; sabedoria: 0; abstração: 3; dentão: 6'
             },
+            5: 
+            {
+                'name': 'grampeador',
+                'attribute': 'força: 2; destreza: 0; resistência: 2; sabedoria: 2; abstração: 5; grampo: 10'
+            },
         };
         super(id, path, options);
     }

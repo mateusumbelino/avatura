@@ -68,6 +68,11 @@ class hands extends shape
             {
                 'name': 'King' 
             },
+            13: 
+            {
+                'name': 'Olho',
+                'attribute': 'força: 0; destreza: 2; resistência: 0; sabedoria: 10; abstração: 5'
+            },
         };
         super(id, path, options);
     }

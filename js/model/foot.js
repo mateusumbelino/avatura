@@ -45,6 +45,11 @@ class foot extends shape
                 'name': 'PixelRobot',
                 'attribute': 'força: 3; destreza: 0; resistência: 2; sabedoria: 2; abstração: 1; robô: 3'
             },
+            8: 
+            {
+                'name': 'Ballet',
+                'attribute': 'força: -2; destreza: 10; resistência: -2; sabedoria: 3; abstração: 0; delicadeza: 10'
+            },
         };
         super(id, path, options);
     }
